@@ -1,0 +1,111 @@
+html{
+    height: 88%;
+  }
+  
+body {
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+    padding-bottom: 6.74rem;
+}
+
+footer{
+    text-align: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    
+    background-color: #3f6770;
+}
+
+.footercontainer1{
+    padding: 30px;
+    height: auto;
+    margin-top: auto;
+}
+
+.footercontainer1 .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footercontainer1 .media{
+    display: flex;
+    gap: 25px;
+    font-size: 30px;
+    height: 50px;
+}
+.footercontainer1 .content .media a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px;
+    border-radius: 50%;
+
+    background-color: #f2f2f2;
+    color: #474747;
+
+    transition: 0.5s;
+
+    text-decoration: none;
+}.footercontainer1 .content .media a i{
+    font-size: 36px;
+}.footercontainer1 .content .media a:hover{
+    background-color: #333;
+    
+}
+.footercontainer1 .content .media .facebook:hover{
+    color: #f2f2f2;
+    background: rgb(68,157,242);
+    background: linear-gradient(90deg, rgba(68,157,242,1) 0%, rgba(61,143,235,1) 22%, rgba(51,127,228,1) 47%, rgba(37,103,219,1) 72%, rgba(17,80,190,1) 100%);
+}
+.footercontainer1 .content .media .instagram:hover{
+    color: #f2f2f2;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+.footercontainer1 .content .media .twitter:hover{
+    color: #f2f2f2;
+    background: rgb(54,216,255);
+    background: linear-gradient(90deg, rgba(54,216,255,1) 0%, rgba(0,172,238,1) 50%, rgba(54,216,255,1) 99%);
+}
+.footercontainer1 .content .media .github:hover{
+    color: #f2f2f2;
+    background: rgb(97,35,189);
+    background: linear-gradient(90deg, rgba(97,35,189,1) 0%, rgba(31,64,196,1) 50%, rgba(154,27,193,1) 100%);
+}
+
+.footercontainer1 .links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.footercontainer1 .links a{
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+
+    color: #FEFAEE;
+}
+.footercontainer1 .links a:hover{
+    color: #3e94ce;
+}
+
+.footercontainer2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #1b2b30;
+}.footercontainer2 p, b{
+    color: #fefaee98;
+    letter-spacing: 2px;
+    padding: 10px;
+    font-weight: 100;
+}
