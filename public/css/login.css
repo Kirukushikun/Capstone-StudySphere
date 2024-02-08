@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    font-family: "Quicksand";
+    color: #333;
+    font-size: 20px;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+Form{
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+
+    /* background-color: aquamarine; */
+    padding: 60px 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    border-radius: 6px;
+
+    width: auto;
+    height: auto;
+}
+Form h1{
+    font-size: 35px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+
+    width: 330px;
+
+    text-align: center;
+}
+
+Form a{
+    text-decoration: none;
+    color: #72B5C5;
+}
+Form a:hover{
+    color: #4680A8;
+}
+
+Form .email, .password, .submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+Form input{
+    width: 100%;
+    padding: 12px;
+
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 2px;
+}Form input:hover{
+    border-color: #72B5C5;
+}
+
+Form button{
+    width: 100%;
+    padding: 10px;
+
+    border-radius: 6px;
+    border-style: none;
+
+    color: white;
+    background-color: #72B5C5;
+
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}Form button:hover{
+    background-color: #4680A8;
+}
+#image1{
+    width: 25%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#image2{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 17%;
+}
+
+
+
