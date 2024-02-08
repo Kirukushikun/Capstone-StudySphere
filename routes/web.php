@@ -32,3 +32,6 @@ Route::get('/dashboard', function () {
 Route::get('/taskmanager', function () {
     return view('taskmanager');
 });
+
+// Route::get('/dashboard', 'StudyMaterialController@dashboard');
+// Route::get('/taskmanager', 'StudyMaterialController@taskmanager');

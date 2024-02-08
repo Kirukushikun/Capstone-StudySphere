@@ -21,7 +21,7 @@
         <div class="menu">
             <ul class="menu-links">
                 <li class="nav-link">
-                    <a href="/">
+                    <a href="/dashboard">
                         <i class='bx bx-home icon' ></i>
                         <span class="text nav-text">Dashboard</span>
                     </a>
@@ -59,7 +59,7 @@
 
         <div class="bottom-content">
             <li class="nav-link">
-                <a href="">
+                <a href="/">
                     <i class='bx bx-log-out icon' ></i>
                     <span class="text nav-text"> Log Out</span>
                 </a>
