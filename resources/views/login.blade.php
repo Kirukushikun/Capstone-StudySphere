@@ -10,13 +10,20 @@
 <body>
     <form action="{{route('login.post')}}" method="POST">
         <h1>Login</h1>
-        @csrf
+        @csrf 
+
+        @if(session()->has('error'))
+            <div class="error">
+                <p>{{ session('error') }}</p>
+            </div>            
+        @endif
+
         <div class="email">
-            <input type="email" name="email" placeholder="Email"/>
+            <input type="email" name="email" placeholder="Email" required/>
         </div>
 
         <div class="password">
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" placeholder="Password"required/>
         </div>
 
         <div>

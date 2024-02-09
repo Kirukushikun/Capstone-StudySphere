@@ -100,5 +100,7 @@ Form button{
     width: 17%;
 }
 
-
+form .error p{
+    color: #e06d6d;
+}
 

@@ -11,15 +11,22 @@
     <form action="{{route('signup.post')}}" method="POST">
         <h1>Sign Up</h1>
         @csrf
+        
+        @if(session()->has('error'))
+            <div class="error">
+                <p>{{ session('error') }}</p>
+            </div>            
+        @endif
+
         <div class="fullname">
             <div class="firstname">
                 <label for="fname">First Name:</label>
-                <input type="text" name="firstname"/>               
+                <input type="text" name="firstname" required/>               
             </div>
 
             <div class="lastname">
                 <label for="lname">Last Name:</label>
-                <input type="text" name="lastname"/>
+                <input type="text" name="lastname" required/>
             </div>
 
         </div>
@@ -27,17 +34,17 @@
 
         <div class="email">
             <label for="email">Email:</label>
-            <input type="email" name="email"/>
+            <input type="email" name="email" required/>
         </div>
 
         <div class="password">
             <label for="password">Password:</label>
-            <input type="password" name="password">
+            <input type="password" name="password" required>
         </div>
 
         <div class="confirmpassword">
             <label for="cpassword">Confirm Password:</label>
-            <input type="password" name="cpassword">
+            <input type="password" name="cpassword" required>
         </div>
 
         <div class="submit">

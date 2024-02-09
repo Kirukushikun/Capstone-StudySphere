@@ -30,12 +30,14 @@ gap: 20px;
 
 }
 
+/* Container 2 */
 .background1{
 width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
 background-color: #f2f7f8;
+padding: 20px 0;
 }
 #aboutSubContent2{
 text-align: center;
@@ -45,23 +47,24 @@ grid-template-columns: 2fr 2fr;
 grid-template-areas: "detail1 detail2";
 
 height: 500px;
-
 }
 #aboutSubContent2 .founderImage{
 grid-area: "detail1";
-background-color:rgb(215, 250, 247);
 
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-content: center;
 
-
+}
+.founderImage img{
+    width: 350px;
+    margin: auto;
+    border-radius: 6px;
 }
 #aboutSubContent2 .founderDetails{
 grid-area: "detail2";
 padding: 20px;
-/* background-color:rgb(250, 247, 215); */
 
 display: flex;
 flex-direction: column;
@@ -75,35 +78,50 @@ font-size: 20px;
 }#aboutSubContent2 .founderDetails h2{
 color: #72B5C5;
 }
+/* Container 2 */
 
+/* Container 2 */
+.background2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
 #aboutSubContent3{
-text-align: center;
-
-display: grid;
-grid-template-columns: 2fr 2fr;
-grid-template-areas: "extra1 extra2";
-
-height: 500px;
-}
-#aboutSubContent3 .extraImage{
-grid-area: "extra2";
-
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-content: center;
-
-background-color:rgb(215, 250, 247);
-}
-#aboutSubContent3 .extraDetails{
-grid-area: "extra1";
-background-color:rgb(250, 247, 215);
-
-display: flex;
-flex-direction: column;
-justify-content: center;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas: "codetail1 codetail2";
+    height: 500px;
 }
 
-#JoinUs{
-margin: 0 auto;
+#aboutSubContent3 .cofounderDetails{
+    grid-area: "codetail1";
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    text-align: left;
+
+    gap: 15px;
+
+    font-size: 20px;
+}#aboutSubContent3 .cofounderDetails h2{
+    color: #72B5C5;
+}
+
+#aboutSubContent3 .cofounderImage{
+    grid-area: "codetail2";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cofounderImage img{
+    width: 350px;
+    margin: auto;
+    border-radius: 6px;
 }

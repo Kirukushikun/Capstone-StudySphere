@@ -19,26 +19,14 @@ class AuthManager extends Controller
     }
 
     function loginPost(Request $request){
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
         $credentials = $request->only('email', 'password');
         if(Auth::attempt($credentials)){
             return redirect()->intended(route('home'));
         }
-        return redirect(route('login'))->with("error", "Login credentials invalid");
+        return redirect(route('login'))->with("error", "Invalid email or password.");
     }
 
     function signupPost(Request $request){
-
-        $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required',
-            'password' => 'required'
-        ]);
 
         $data['firstname'] = $request->firstname;
         $data['lastname'] = $request->lastname;
@@ -48,7 +36,7 @@ class AuthManager extends Controller
         $user = User::create($data);
 
         if(!$user){
-            return redirect(route('signup'))->with("error", "Signup failed, Try Again");
+            return redirect(route('signup'))->with("error", "Credentials invalid, please try again.");
         }
         return redirect()->intended(route('login'));
     }

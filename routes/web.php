@@ -42,9 +42,15 @@ Route::get('/studymaterial', function () {
 })->name('studymaterial');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    if(Auth::check()){
+        return view('/dashboard');
+    }
+    return view('login');
 });
 
 Route::get('/taskmanager', function () {
-    return view('taskmanager');
+    if(Auth::check()){
+        return view('/taskmanager');
+    }
+    return view('login');
 });
