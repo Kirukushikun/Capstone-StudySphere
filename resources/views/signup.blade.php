@@ -8,36 +8,36 @@
     <title>StudySphere</title>
 </head>
 <body>
-    <form action="">
+    <form action="{{route('signup.post')}}" method="POST">
         <h1>Sign Up</h1>
-
+        @csrf
         <div class="fullname">
-
             <div class="firstname">
                 <label for="fname">First Name:</label>
-                <input type="text" id="fname"/>               
+                <input type="text" name="firstname"/>               
             </div>
 
             <div class="lastname">
                 <label for="lname">Last Name:</label>
-                <input type="text" id="fname"/>
+                <input type="text" name="lastname"/>
             </div>
-            
+
         </div>
+
 
         <div class="email">
             <label for="email">Email:</label>
-            <input type="email" id="email"/>
+            <input type="email" name="email"/>
         </div>
 
         <div class="password">
             <label for="password">Password:</label>
-            <input type="password" id="password">
+            <input type="password" name="password">
         </div>
 
         <div class="confirmpassword">
             <label for="cpassword">Confirm Password:</label>
-            <input type="password" id="cpassword">
+            <input type="password" name="cpassword">
         </div>
 
         <div class="submit">

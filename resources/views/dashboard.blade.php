@@ -12,12 +12,12 @@
 <body>
 
     @yield('sidebar')
-
     <section class="home">
         <div class="text">
             Dashboard
         </div>
     </section>
+
 
     <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>

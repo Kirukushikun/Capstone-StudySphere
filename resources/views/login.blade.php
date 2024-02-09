@@ -8,15 +8,15 @@
     <title>StudySphere</title>
 </head>
 <body>
-    <form action="">
+    <form action="{{route('login.post')}}" method="POST">
         <h1>Login</h1>
-
+        @csrf
         <div class="email">
-            <input type="email" id="email" placeholder="Email"/>
+            <input type="email" name="email" placeholder="Email"/>
         </div>
 
         <div class="password">
-            <input type="password" id="password" placeholder="Password">
+            <input type="password" name="password" placeholder="Password">
         </div>
 
         <div>
