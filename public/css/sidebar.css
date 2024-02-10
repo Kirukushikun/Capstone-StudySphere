@@ -263,13 +263,6 @@ body.dark .switch::before{
     background: var(--body-color);
 }
 
-.home .text{
-    font-size: 30px;
-    font-weight: 500;
-    color: var(--text-color);
-    padding: 20px;
-}
-
 .sidebar.close ~ .home{
     left: 88px;
     width: calc(100% - 88px);

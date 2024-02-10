@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthManager;
+use App\Http\Controllers\StudyMaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,10 @@ Route::post('/signup', [AuthManager::class, 'signupPost'])->name('signup.post');
 
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
+Route::get('/taskmanager', [StudyMaterialController::class, 'task'])->name('taskmanager');
+Route::post('/taskmanager', [StudyMaterialController::class, 'taskPost'])->name('taskmanager.post');
+
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
@@ -39,18 +44,8 @@ Route::get('/studymaterial', function () {
         return view('/dashboard');
     }
     return view('login');
-})->name('studymaterial');
+})->name('studymaterials');
 
 Route::get('/dashboard', function () {
-    if(Auth::check()){
-        return view('/dashboard');
-    }
-    return view('login');
-});
-
-Route::get('/taskmanager', function () {
-    if(Auth::check()){
-        return view('/taskmanager');
-    }
-    return view('login');
-});
+    return view('dashboard');
+})->name('dashboard');

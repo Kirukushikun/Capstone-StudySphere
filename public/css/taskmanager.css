@@ -1,0 +1,110 @@
+.taskManager{
+    width: 100%;
+    /* background-color: rgb(225, 205, 178); */
+
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskManager .user{
+    font-size: 20px;
+}.taskManager .user b{
+    color:#72B5C5; 
+}
+
+.taskManagerContent{
+    width: 100%;
+    background-color: #72c5af4e;
+}
+
+.taskManagerContent .labels{
+    font-size: 25px;
+
+    margin: 0 40px;
+
+    background-color: #72c5af;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.Add{
+    visibility: hidden;
+}
+.Add.Active{
+    visibility: visible;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: auto;
+
+    height: 80vh;
+    width: 100%;
+}
+
+.fillup{
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+
+    font-size: 20px;
+
+    padding: 30px;
+    width: 350px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    gap: 10px;
+}
+.fillup label{
+    width: 100%;
+}
+.fillup input, select{
+    font-size: 15px;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 12px;
+
+    border-style: solid;
+    border-color: #333;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.fillup .btns{
+    display: flex;
+    gap: 10px;
+}
+
+.fillup .btns #btnAddTask{
+    background-color: #72c5af;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    border-style: none;
+}.fillup .btns #btnAddTask:hover{
+    background-color: #55a892;
+}
+.fillup .btns #btnCancel{
+    background-color: #c57272;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    border-style: none;
+}.fillup .btns #btnCancel:hover{
+    background-color: #a85959;
+}
