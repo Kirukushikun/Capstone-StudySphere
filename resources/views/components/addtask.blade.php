@@ -25,7 +25,7 @@
 
         <div class="btns">
             <button type="submit" id="btnAddTask" >Add</button>
-            <button type="text" class="close" id="btnCancel" onclick="popdown()">Cancel</button>
+            <button type="button" class="close" id="btnCancel" onclick="popdown()">Cancel</button>
         </div>
     </div>
     
