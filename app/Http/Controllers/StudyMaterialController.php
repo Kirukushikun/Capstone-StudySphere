@@ -12,7 +12,10 @@ class StudyMaterialController extends Controller
 
     function task(){
         if(Auth::check()){
-            return view('taskmanager');
+            // Retrieve tasks data associated with the authenticated user
+            $tasks = TaskManager::where('user_id', Auth::id())->get();
+            // Return the taskmanager view with filtered tasks data
+            return view('taskmanager', ['tasks' => $tasks]);
         }
         return view('login');
     }

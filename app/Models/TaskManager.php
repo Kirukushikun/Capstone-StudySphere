@@ -25,6 +25,10 @@ class TaskManager extends Model
         'user_id',
     ];
 
+    protected $casts = [
+        'due_date' => 'date',
+    ];
+
     /**
      * Get the user that owns the task.
      */
