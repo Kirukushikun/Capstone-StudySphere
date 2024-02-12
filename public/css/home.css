@@ -170,11 +170,13 @@ background-color: #4680A8;
 }
 .container3 .image{
     grid-area: "content2";
-    background-color: #72b5c566;
+    /* background-color: #72b5c566; */
     height: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
+}.container3 .image img{
+    width: 500px;
 }
 /* /CONTAINER 3 */

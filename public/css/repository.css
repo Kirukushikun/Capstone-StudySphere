@@ -49,15 +49,7 @@ body.dark{
     --primary-color-opposite: #72B5C5;
 }
 
-/* .addfunction{
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-
+/* ADD FORM */
 .Add{
     /* visibility: hidden; */
     opacity: 0;
@@ -110,7 +102,7 @@ body.dark{
 .fillup label{
     width: 100%;
 }
-.fillup input, select{
+.fillup input, textarea{
     font-size: 15px;
     letter-spacing: 1px;
     width: 100%;
@@ -120,6 +112,8 @@ body.dark{
     border-color: var(--text-color);
     border-width: 1px;
     border-radius: 5px;
+
+    resize: none;
 }
 
 .fillup .btns{
@@ -148,8 +142,7 @@ body.dark{
 }.fillup .btns #btnCancel:hover{
     background-color: #a25656;
 }
-
-
+/* ADD FORM */
 
 .home{
     display: flex;
@@ -157,7 +150,7 @@ body.dark{
     align-items: center;
 }
 
-.taskManager{
+.subjectHeader{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -166,13 +159,13 @@ body.dark{
 
     font-size: 20px;
     color: var(--text-color);
-}.taskManager h1{
+}.subjectHeader h1{
     font-size: 30px;
-}.taskManager b{
+}.subjectHeader b{
     color: var(--primary-color);
 }
 
-.taskManagerTable{
+.subjectContent{
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -182,75 +175,15 @@ body.dark{
     /* background-color: #72c5afc3; */
 }
 
-.addTasks{
+.addSubjects{
     width: 100%;
     display: flex;
     justify-content: end;
     padding: 0 5px;
     font-size: 30px;
     color: var(--text-color);
-}.addTasks i:hover{
+}.addSubjects i:hover{
     color: var(--primary-color);
     font-weight: 600;
     cursor: pointer;
-}
-
-.userTasks{
-    width: 100%;
-}
-
-.content-table{
-    border-collapse: collapse;
-    font-size: 20px;
-    width: 100%;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.content-table thead tr{
-    transition: var(--tran-04);
-    color: var(--text-color2);
-    background-color: var(--primary-color);
-    text-align: left;
-}
-
-.content-table th,
-.content-table td{
-    padding: 12px 15px;
-}
-
-.content-table tbody tr{
-    transition: var(--tran-04);
-    border-bottom: 2px solid var(--primary-color-light);
-    color: var(--text-color2);
-    background-color: var(--sidebar-color);
-}
-
-.content-table tbody tr .Cap{
-    text-transform: capitalize;
-}
-
-.content-table tbody tr button{
-    font-size: 20px;
-    color: white;
-    padding:5px;
-    border-radius: 3px;
-    border-style: none;
-    transition: var(--tran-04);
-
-    cursor: pointer;
-} #edit{
-    background-color: var(--primary-color);
-} #delete{
-    background-color: #d16d6d;
-} #edit:hover{
-    background-color: var(--primary-color-opposite);
-} #delete:hover{
-    background-color: #a25656;
-}
-
-
-.content-table tbody tr:last-of-type{
-    border-bottom: 2px solid var(--primary-color);
 }

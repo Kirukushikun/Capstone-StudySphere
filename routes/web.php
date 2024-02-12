@@ -26,6 +26,9 @@ Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 Route::get('/taskmanager', [StudyMaterialController::class, 'task'])->name('taskmanager');
 Route::post('/taskmanager', [StudyMaterialController::class, 'taskPost'])->name('taskmanager.post');
 
+Route::get('/repository', [StudyMaterialController::class, 'repository'])->name('repository');
+Route::post('/repository', [StudyMaterialController::class, 'repositoryPost'])->name('repository.post');
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,16 +38,18 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-});
-
 Route::get('/studymaterial', function () {
     if(Auth::check()){
         return view('/dashboard');
     }
     return view('login');
 })->name('studymaterials');
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

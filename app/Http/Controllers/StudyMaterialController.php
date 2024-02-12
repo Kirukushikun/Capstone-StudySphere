@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\TaskManager;
+use App\Models\Subjects;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,6 @@ class StudyMaterialController extends Controller
         }
         return view('login');
     }
-    
     function taskPost(Request $request){ // Add Request parameter to the function
 
         //names should be the same as the column in database tble
@@ -37,6 +37,26 @@ class StudyMaterialController extends Controller
 
         // Redirect the user to the task manager page
         return redirect()->route('taskmanager');
+    }
+
+    function repository(){
+
+        if(Auth::check()){
+            return view('repository');
+        }
+        return view('login');
+    }
+
+    function repositoryPost(Request $request){
+
+        $data['subject'] = $request->subject;
+        $data['description'] = $request->description;
+        $data['user_id'] = auth()->user()->id;
+
+        $user = Subjects::create($data);
+
+        return redirect()->route('repository');
+
     }
 
 }

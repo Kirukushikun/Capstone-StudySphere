@@ -6,28 +6,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-class TaskManager extends Model
-{   
-    protected $table = 'task_manager';
-    public $timestamps = false;
+class Subjects extends Model
+{
     use HasFactory;
-    /**
+    protected $table='repository';
+    public $timestamps = false;
+        /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'title',
+
+     protected $fillable = [
         'subject',
-        'due_date',
-        'priority',
-        'status',
+        'description',
         'user_id',
     ];
 
     protected $casts = [
         'due_date' => 'date',
     ];
-
 }
-

@@ -69,11 +69,6 @@
 
         @yield('addtask')
 
-        <!-- <div class="addfunction">
-            
-        </div> -->
-        
-
     </section>
 
     

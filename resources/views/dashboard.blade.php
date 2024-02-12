@@ -18,7 +18,6 @@
         </div>
     </section>
 
-
     <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>

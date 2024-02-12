@@ -12,7 +12,7 @@
     <div class="userStatus">
         @auth
             <div class="user">
-                <span>Welcome, <b>{{ Auth::user()->firstname }}</b></span>
+                <span><b>{{ Auth::user()->firstname }}</b></span>
             </div>
             <div class="logout">
                 <a href="{{ route('logout') }}">Log Out</a>

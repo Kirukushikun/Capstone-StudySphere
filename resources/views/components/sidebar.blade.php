@@ -49,7 +49,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="">
+                    <a href="/repository">
                         <i class='bx bx-folder icon' ></i>
                         <span class="text nav-text"> Repository</span>
                     </a>

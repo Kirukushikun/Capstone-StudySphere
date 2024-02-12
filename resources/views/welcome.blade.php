@@ -57,7 +57,9 @@
                         <li>Innovative Learning Tools</li>
                     </ul>
                 </div>
-                <div class="image">Image</div> 
+                <div class="image">
+                    <img src="{{ asset('sources/Sql-Laptop.png') }}" alt="Image Unavailable">
+                </div> 
             </div>
         </div>
     </div>
