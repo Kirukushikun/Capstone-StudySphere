@@ -27,6 +27,10 @@ Route::get('/taskmanager', [StudyMaterialController::class, 'task'])->name('task
 Route::post('/taskmanager', [StudyMaterialController::class, 'taskPost'])->name('taskmanager.post');
 Route::delete('/taskmanager/{task}', [StudyMaterialController::class, 'taskDelete'])->name('task.delete');
 
+// Out of this world functions
+Route::get('task/edit/{id}', [StudyMaterialController::class, 'edit'])->name('task.edit');
+Route::patch('task/{id}', [StudyMaterialController::class, 'update'])->name('task.update');
+
 
 Route::get('/repository', [StudyMaterialController::class, 'repository'])->name('repository');
 Route::post('/repository', [StudyMaterialController::class, 'repositoryPost'])->name('repository.post');

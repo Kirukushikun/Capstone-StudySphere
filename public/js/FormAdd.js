@@ -5,9 +5,10 @@ function popupTF(){
 }
 
 function popupUTF(){
-    document.querySelector(".updateTask").classList.add("Active");
+    document.querySelector(".EditTask").classList.add("Active");
+    
 }function popdownUTF(){
-    document.querySelector(".updateTask").classList.remove("Active");
+    document.querySelector(".EditTask").classList.remove("Active");
 }
 
 function popupSF(){

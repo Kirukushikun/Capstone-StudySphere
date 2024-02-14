@@ -17,6 +17,7 @@ class TaskManager extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'title',
         'subject',
         'due_date',

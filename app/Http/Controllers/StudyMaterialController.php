@@ -44,21 +44,34 @@ class StudyMaterialController extends Controller
         return redirect()->route('taskmanager');
     }
 
-    function edit(TaskManager $tasks){
-        return view('editTask', compact('tasks'));
+    function edit($id)
+    {
+        $task = TaskManager::findOrFail($id);
+        $tasks = TaskManager::where('user_id', Auth::id())->get();
+
+        return view('editTask', compact('task', 'tasks'));
     }
 
-    function taskUpdate(Request $request, TaskManager $tasks){
-        $request->validate([
-            'title' => 'required',
-            'subject' => 'required',
-            'due_date' => 'required',
-            'priority' => 'required',
-            'status' => 'requried'
+    public function update(Request $request, $id) {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'title' => 'required|string',
+            'subject' => 'required|string',
+            'due_date' => 'required|date',
+            'priority' => 'required|in:least,neutral,prioritize',
+            'status' => 'required|in:pending,in_progress,completed',
         ]);
-        $tasks->update($request->only('title', 'subject', 'due_date', 'priority', 'status'));
-        return redirect()->route('taskmanager');
+
+        // Find the task by ID
+        $task = TaskManager::findOrFail($id);
+
+        // Update the task with the validated data
+        $task->update($validatedData);
+
+        // Redirect the user back to the task manager page
+        return redirect()->route('taskmanager')->with('success', 'Task updated successfully');
     }
+
 
     function repository(){
 

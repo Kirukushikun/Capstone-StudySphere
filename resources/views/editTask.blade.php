@@ -12,7 +12,7 @@
     <title>StudySphere</title>
 </head>
 <body>
-
+    
     @yield('sidebar')
 
     <section class="home">
@@ -27,7 +27,7 @@
         <div class="taskManagerTable">
 
             <div class="addTasks">
-                <i class='bx bx-plus' onclick="popupTF()"></i>
+                <i class='bx bx-plus' onclick=""></i>
             </div>
 
             <div class="userTasks">
@@ -44,7 +44,7 @@
                     </thead>
 
                     <tbody>
-                        @foreach($tasks as $task)
+                    @foreach($tasks as $task)
                             <tr>
                                 <td class="Cap">{{ $task->title }}</td>
                                 <td>{{ $task->subject }}</td>
@@ -74,10 +74,40 @@
             </div>
         </div>
 
-        @yield('addtask')
-    </section>
-    
-    <script src="{{ asset('js/formAdd.js') }}"></script>
-    <script src="{{ asset('js/sidebar.js') }}"></script>
+    <form class="EditTask" action="{{ route('task.update', $task->id) }}" method="POST">
+
+        <div class="fillup">
+            @csrf
+            @method('PATCH')
+            <h1>Edit Task</h1>
+            <input type="text" placeholder="Title" name="title" id="title" value="{{ $task->title }}" required>
+            <input type="text" placeholder="Subject" name="subject" value="{{ $task->subject }}" required>
+
+            <label for="due">Due Date:</label>
+            <input type="date" name="due_date" id="due_date" value="{{ $task->due_date->format('Y-m-d') }}" required>
+
+            <label for="priority">Priority Level:</label>
+            <select class="form-control" id="priority" name="priority" required>
+                <option value="least" {{ $task->priority == 'least' ? 'selected' : '' }}>Least</option>
+                <option value="neutral" {{ $task->priority == 'neutral' ? 'selected' : '' }}>Neutral</option>
+                <option value="prioritize" {{ $task->priority == 'prioritize' ? 'selected' : '' }}>Prioritize</option>
+            </select>
+
+            <label for="status">Status:</label>
+            <select class="form-control" id="status" name="status" required>
+                <option value="pending" {{ $task->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                <option value="in_progress" {{ $task->status == 'in_progress' ? 'selected' : '' }}>In Progress</option>
+                <option value="completed" {{ $task->status == 'completed' ? 'selected' : '' }}>Completed</option>
+            </select>
+
+            <div class="btns">
+                <button type="submit" id="btnAddTask">Update</button>
+                <button type="button" class="close" id="btnCancel" onclick="window.location.href='{{route('taskmanager')}}'">Cancel</button>
+            </div>
+        </div>
+
+    </form>
+
+
 </body>
 </html>

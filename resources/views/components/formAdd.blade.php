@@ -32,6 +32,40 @@
 </form>
 @endsection
 
+<!-- @section('edittask')
+<form class="EditTask" action="">
+
+    <div class="fillup">
+        <h1>Edit Task</h1>
+        <input type="text" placeholder="Title" name="title" required>
+        <input type="text" placeholder="Subject" name="subject" required>
+
+        <label for="due">Due Date:</label>
+        <input type="date" name="due_date" required>
+
+        <label for="priority">Priority Level:</label>
+        <select class="form-control" id="priority" name="priority" required>
+            <option value="least">Least</option>
+            <option value="neutral">Neutral</option>
+            <option value="prioritize">Prioritize</option>
+        </select>
+
+        <label for="status">Status:</label>
+        <select class="form-control" id="status" name="status" required>
+            <option value="pending">Pending</option>
+            <option value="in_progress">In Progress</option>
+            <option value="completed">Completed</option>
+        </select>
+
+        <div class="btns">
+            <button type="submit" id="btnAddTask" >Update</button>
+            <button type="button" class="close" id="btnCancel" onclick="popdownUTF()">Cancel</button>
+        </div>
+    </div>
+
+</form>
+@endsection -->
+
 @section('addsubject')
 <form class="AddSubject" action="{{ route('repository.post')}}" method="POST">
     @csrf
