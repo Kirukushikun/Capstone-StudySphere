@@ -50,7 +50,7 @@ body.dark{
 }
 
 /* ADD FORM */
-.Add{
+.AddSubject{
     /* visibility: hidden; */
     opacity: 0;
     z-index: -1;
@@ -66,7 +66,7 @@ body.dark{
     transition: var(--tran-04);
 }
 
-.Add.Active{
+.AddSubject.Active{
     /* visibility: visible; */
     opacity: 1;
     z-index: 1;
@@ -187,3 +187,63 @@ body.dark{
     font-weight: 600;
     cursor: pointer;
 }
+
+
+/* USER SUBJECTS */
+.userSubjects{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "sub1 sub2 sub3 sub4";
+    gap: 10px;
+}
+
+.userSubjects .subject{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+
+    padding: 20px;
+
+    border-radius: 6px;
+
+    color: white;
+    background-color: var(--primary-color);
+}
+
+.userSubjects .subject .items{
+    padding: 10px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: space-between;
+}.userSubjects .subject .items p{
+    color: rgba(255, 255, 255, 0.609);
+}
+.userSubjects .subject .items .view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}.userSubjects .subject .items .view:hover{
+    transform: scale(1.1);
+}
+.userSubjects .subject .items .view a{
+    background-color: #eeeeee;
+    border-radius: 6px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #333;
+}
+/* USER SUBJECTS */
+
+
+/* VIEW SUBJECTS */
+.userDocuments{
+    background-color: #4680A8;
+    width: 100%;
+}
+/* VIEW SUBJECTS */

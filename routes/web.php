@@ -25,9 +25,13 @@ Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
 Route::get('/taskmanager', [StudyMaterialController::class, 'task'])->name('taskmanager');
 Route::post('/taskmanager', [StudyMaterialController::class, 'taskPost'])->name('taskmanager.post');
+Route::delete('/taskmanager/{task}', [StudyMaterialController::class, 'taskDelete'])->name('task.delete');
+
 
 Route::get('/repository', [StudyMaterialController::class, 'repository'])->name('repository');
 Route::post('/repository', [StudyMaterialController::class, 'repositoryPost'])->name('repository.post');
+
+Route::get('/subjectview/{id}', [StudyMaterialController::class, 'subjectView'])->name('subjectview');
 
 
 Route::get('/', function () {
@@ -48,8 +52,6 @@ Route::get('/studymaterial', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

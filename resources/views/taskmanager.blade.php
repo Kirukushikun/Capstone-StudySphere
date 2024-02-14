@@ -1,5 +1,5 @@
 @include('components.sidebar')
-@include('components.addtask')
+@include('components.formAdd')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +27,7 @@
         <div class="taskManagerTable">
 
             <div class="addTasks">
-                <i class='bx bx-plus' onclick="popup()"></i>
+                <i class='bx bx-plus' onclick="popupTF()"></i>
             </div>
 
             <div class="userTasks">
@@ -51,13 +51,20 @@
                                 <td>{{ $task->due_date->format('m/d/Y') }}</td>
                                 <td class="Cap">{{ $task->priority }}</td>
                                 <td class="Cap">{{ $task->status == 'in_progress' ? 'In Progress' : $task->status }}</td>
-                                <td>
+                                <td class="btns">
+
                                     <button id="edit">
-                                        <i class='bx bx-pencil' ></i>
+                                        <i class='bx bx-pencil'  ></i>
                                     </button>
-                                    <button id="delete">
-                                        <i class='bx bx-trash'></i>
-                                    </button>
+
+                                    <form action="{{route('task.delete', $task->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" id="delete">
+                                            <i class='bx bx-trash'></i>
+                                            </button>
+                                    </form>
+
                                 </td>
                             </tr>
                         @endforeach
@@ -72,7 +79,7 @@
     </section>
 
     
-    <script src="{{ asset('js/addtask.js') }}"></script>
+    <script src="{{ asset('js/formAdd.js') }}"></script>
     <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>

@@ -39,16 +39,38 @@ class StudyMaterialController extends Controller
         return redirect()->route('taskmanager');
     }
 
+    function taskDelete(TaskManager $task){
+        $task->delete();
+        return redirect()->route('taskmanager');
+    }
+
+    function edit(TaskManager $tasks){
+        return view('editTask', compact('tasks'));
+    }
+
+    function taskUpdate(Request $request, TaskManager $tasks){
+        $request->validate([
+            'title' => 'required',
+            'subject' => 'required',
+            'due_date' => 'required',
+            'priority' => 'required',
+            'status' => 'requried'
+        ]);
+        $tasks->update($request->only('title', 'subject', 'due_date', 'priority', 'status'));
+        return redirect()->route('taskmanager');
+    }
+
     function repository(){
 
         if(Auth::check()){
-            return view('repository');
+            $subjects = Subjects::where('user_id', Auth::id())->get();
+            return view('repository', ['subjects' => $subjects]);
         }
         return view('login');
     }
 
     function repositoryPost(Request $request){
-
+        
         $data['subject'] = $request->subject;
         $data['description'] = $request->description;
         $data['user_id'] = auth()->user()->id;
@@ -57,6 +79,12 @@ class StudyMaterialController extends Controller
 
         return redirect()->route('repository');
 
+    }
+
+    function subjectView($id){
+        $subject = Subjects::find($id);
+
+        return view('subjectview', ['subject' => $subject]);
     }
 
 }

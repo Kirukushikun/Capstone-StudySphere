@@ -58,7 +58,7 @@ body.dark{
     align-items: center;
 } */
 
-.Add{
+.AddTask{
     /* visibility: hidden; */
     opacity: 0;
     z-index: -1;
@@ -74,7 +74,7 @@ body.dark{
     transition: var(--tran-04);
 }
 
-.Add.Active{
+.AddTask.Active{
     /* visibility: visible; */
     opacity: 1;
     z-index: 1;
@@ -230,7 +230,10 @@ body.dark{
 .content-table tbody tr .Cap{
     text-transform: capitalize;
 }
-
+.content-table tbody tr .btns{
+    display: flex;
+    gap: 10px;
+}
 .content-table tbody tr button{
     font-size: 20px;
     color: white;
@@ -238,6 +241,11 @@ body.dark{
     border-radius: 3px;
     border-style: none;
     transition: var(--tran-04);
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     cursor: pointer;
 } #edit{

@@ -18,6 +18,7 @@ class Subjects extends Model
      */
 
      protected $fillable = [
+        'id',
         'subject',
         'description',
         'user_id',
