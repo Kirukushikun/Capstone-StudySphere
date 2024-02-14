@@ -14,7 +14,8 @@ class StudyMaterialController extends Controller
     function task(){
         if(Auth::check()){
             // Retrieve tasks data associated with the authenticated user
-            $tasks = TaskManager::where('user_id', Auth::id())->get();
+            // $tasks = TaskManager::where('user_id', Auth::id())->get();
+            $tasks = TaskManager::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
             // Return the taskmanager view with filtered tasks data
             return view('taskmanager', ['tasks' => $tasks]);
         }
@@ -46,10 +47,10 @@ class StudyMaterialController extends Controller
 
     function edit($id)
     {
-        $task = TaskManager::findOrFail($id);
-        $tasks = TaskManager::where('user_id', Auth::id())->get();
+        $taskID = TaskManager::findOrFail($id);
+        $tasks = TaskManager::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
 
-        return view('editTask', compact('task', 'tasks'));
+        return view('editTask', compact('taskID', 'tasks'));
     }
 
     public function update(Request $request, $id) {

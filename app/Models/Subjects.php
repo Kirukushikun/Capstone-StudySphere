@@ -10,7 +10,7 @@ class Subjects extends Model
 {
     use HasFactory;
     protected $table='repository';
-    public $timestamps = false;
+    // public $timestamps = false;
         /**
      * The attributes that are mass assignable.
      *

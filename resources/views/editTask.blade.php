@@ -74,30 +74,30 @@
             </div>
         </div>
 
-    <form class="EditTask" action="{{ route('task.update', $task->id) }}" method="POST">
+    <form class="EditTask" action="{{ route('task.update', $taskID->id) }}" method="POST">
 
         <div class="fillup">
             @csrf
             @method('PATCH')
             <h1>Edit Task</h1>
-            <input type="text" placeholder="Title" name="title" id="title" value="{{ $task->title }}" required>
-            <input type="text" placeholder="Subject" name="subject" value="{{ $task->subject }}" required>
+            <input type="text" placeholder="Title" name="title" id="title" value="{{ $taskID->title }}" required>
+            <input type="text" placeholder="Subject" name="subject" value="{{ $taskID->subject }}" required>
 
             <label for="due">Due Date:</label>
-            <input type="date" name="due_date" id="due_date" value="{{ $task->due_date->format('Y-m-d') }}" required>
+            <input type="date" name="due_date" id="due_date" value="{{ $taskID->due_date->format('Y-m-d') }}" required>
 
             <label for="priority">Priority Level:</label>
             <select class="form-control" id="priority" name="priority" required>
-                <option value="least" {{ $task->priority == 'least' ? 'selected' : '' }}>Least</option>
-                <option value="neutral" {{ $task->priority == 'neutral' ? 'selected' : '' }}>Neutral</option>
-                <option value="prioritize" {{ $task->priority == 'prioritize' ? 'selected' : '' }}>Prioritize</option>
+                <option value="least" {{ $taskID->priority == 'least' ? 'selected' : '' }}>Least</option>
+                <option value="neutral" {{ $taskID->priority == 'neutral' ? 'selected' : '' }}>Neutral</option>
+                <option value="prioritize" {{ $taskID->priority == 'prioritize' ? 'selected' : '' }}>Prioritize</option>
             </select>
 
             <label for="status">Status:</label>
             <select class="form-control" id="status" name="status" required>
-                <option value="pending" {{ $task->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                <option value="in_progress" {{ $task->status == 'in_progress' ? 'selected' : '' }}>In Progress</option>
-                <option value="completed" {{ $task->status == 'completed' ? 'selected' : '' }}>Completed</option>
+                <option value="pending" {{ $taskID->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                <option value="in_progress" {{ $taskID->status == 'in_progress' ? 'selected' : '' }}>In Progress</option>
+                <option value="completed" {{ $taskID->status == 'completed' ? 'selected' : '' }}>Completed</option>
             </select>
 
             <div class="btns">
