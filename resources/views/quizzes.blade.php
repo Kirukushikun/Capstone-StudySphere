@@ -50,7 +50,7 @@
                             <p>20 Items</p>
 
                             <div class="view">
-                                <span><a>Take Quiz</a></span>
+                                <span><a href="{{route('quizview', ['id'=>$quiz->id ])}}">View Quiz</a></span>
                             </div>
                         </div>
                     </div>

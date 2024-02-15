@@ -58,7 +58,7 @@
     @csrf 
 
     <div class="fillup">
-        <h1>Add Quiz</h1>
+        <h1>Make Quiz Container</h1>
         <label for="name">Quiz Name:</label>
         <input type="text" name="name" required>
 

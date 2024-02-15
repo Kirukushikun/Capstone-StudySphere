@@ -96,6 +96,13 @@ class StudyMaterialController extends Controller
 
     }
 
+    function subjectView($id){
+        $subject = Subjects::find($id);
+
+        return view('subjectview', ['subject' => $subject]);
+    }
+
+
     function quizzes(){
         if(Auth::check()){
             $quizzes = Quizzes::where('user_id', Auth::id())->get();
@@ -115,10 +122,10 @@ class StudyMaterialController extends Controller
         return redirect()->route('quizzes');
     }
 
-    function subjectView($id){
-        $subject = Subjects::find($id);
-
-        return view('subjectview', ['subject' => $subject]);
+    function quizView($id){
+        $quiz = Quizzes::find($id);
+        return view('quizview', ['quiz' => $quiz]);
     }
+
 
 }

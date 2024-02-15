@@ -38,6 +38,8 @@ Route::post('/repository', [StudyMaterialController::class, 'repositoryPost'])->
 Route::get('/quizzes', [StudyMaterialController::class, 'quizzes'])->name('quizzes');
 Route::post('/quizzes', [StudyMaterialController::class, 'quizzesPost'])->name('quizzes.post');
 
+Route::get('/quizview/{id}', [StudyMaterialController::Class, 'quizView'])->name('quizview');
+
 Route::get('/subjectview/{id}', [StudyMaterialController::class, 'subjectView'])->name('subjectview');
 
 
