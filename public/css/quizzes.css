@@ -50,7 +50,7 @@ body.dark{
 }
 
 /* ADD FORM */
-.AddSubject{
+.AddQuiz{
     /* visibility: hidden; */
     opacity: 0;
     z-index: -1;
@@ -66,7 +66,7 @@ body.dark{
     transition: var(--tran-04);
 }
 
-.AddSubject.Active{
+.AddQuiz.Active{
     /* visibility: visible; */
     opacity: 1;
     z-index: 1;
@@ -150,7 +150,7 @@ body.dark{
     align-items: center;
 }
 
-.subjectHeader{
+.quizzesHeader{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -159,13 +159,13 @@ body.dark{
 
     font-size: 20px;
     color: var(--text-color);
-}.subjectHeader h1{
+}.quizzesHeader h1{
     font-size: 30px;
-}.subjectHeader b{
+}.quizzesHeader b{
     color: var(--primary-color);
 }
 
-.subjectContent{
+.quizzesContent{
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -175,30 +175,29 @@ body.dark{
     /* background-color: #72c5afc3; */
 }
 
-.addSubjects{
+.addQuizzes{
     width: 100%;
     display: flex;
     justify-content: end;
     padding: 0 5px;
     font-size: 30px;
     color: var(--text-color);
-}.addSubjects i:hover{
+}.addQuizzes i:hover{
     color: var(--primary-color);
     font-weight: 600;
     cursor: pointer;
 }
 
-
-/* USER SUBJECTS */
-.userSubjects{
+/* USER QUIZZES */
+.userQuizzes{
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: "sub1 sub2 sub3 sub4";
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-areas: "sub1 sub2 sub3";
     gap: 10px;
 }
 
-.userSubjects .subject{
+.userQuizzes .quiz{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -210,27 +209,66 @@ body.dark{
     transition: var(--tran-04);
     color: white;
     background-color: var(--primary-color);
+
+    width: 100%;
 }
 
-.userSubjects .subject .items{
+.userQuizzes .quiz .details{
+    display: flex;
+    gap: 10px;
+}
+.userQuizzes .quiz .details .subjecttitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: #333;
+    border-radius: 50%;
+    padding: 15px;
+
+    height: 120px;
+    max-width: 120px;
+
+    width: 120px;
+    max-width: 120px;
+    min-width: 120px;
+}.userQuizzes .quiz .details .subjectdetail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 0;
+}
+.userQuizzes .quiz .details .subjectdetail p{
+    height: 50px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+.userQuizzes .quiz .details .subjectdetail h2{
+    margin-bottom: 7px;
+}
+
+.userQuizzes .quiz .items{
     padding: 10px 0;
     width: 100%;
     display: flex;
     align-items: center;
     margin-top: 20px;
     justify-content: space-between;
-}.userSubjects .subject .items p{
+}.userQuizzes .quiz .items p{
     color: rgba(255, 255, 255, 0.609);
 }
-.userSubjects .subject .items .view{
+.userQuizzes .quiz .items .view{
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 0.4s;
-}.userSubjects .subject .items .view:hover{
+    cursor: pointer;
+}.userQuizzes .quiz .items .view:hover{
     transform: scale(1.1);
 }
-.userSubjects .subject .items .view a{
+.userQuizzes .quiz .items .view a{
     background-color: #eeeeee;
     border-radius: 6px;
     padding: 10px 20px;

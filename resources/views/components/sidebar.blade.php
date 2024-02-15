@@ -42,7 +42,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="">
+                    <a href="/quizzes">
                         <i class='bx bx-bulb icon' ></i>
                         <span class="text nav-text">Quiz Section</span>
                     </a>

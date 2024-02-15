@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\TaskManager;
 use App\Models\Subjects;
+use App\Models\Quizzes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -93,6 +94,25 @@ class StudyMaterialController extends Controller
 
         return redirect()->route('repository');
 
+    }
+
+    function quizzes(){
+        if(Auth::check()){
+            $quizzes = Quizzes::where('user_id', Auth::id())->get();
+            return view('quizzes', ['quizzes' => $quizzes]);
+        }
+        return view('login');
+    }
+
+    function quizzesPost(Request $request){
+        $data['name'] = $request->name;
+        $data['subject'] = $request->subject;
+        $data['description'] = $request->description;
+        $data['user_id'] = auth()->user()->id;
+
+        $user = Quizzes::create($data);
+
+        return redirect()->route('quizzes');
     }
 
     function subjectView($id){

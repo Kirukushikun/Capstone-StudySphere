@@ -27,21 +27,31 @@
 
         <div class="subjectContent">
 
-            <div class="addSubjects">
-                <i class='bx bx-plus' onclick="popup()"></i>
-                <i class='bx bxs-file-plus'></i>
-            </div>
-
             <div class="userDocuments">
                 
-                <div class="tasks">
+                <div class="materials">
                     <!-- This is where we will display Tasks and todo list made by the user -->
-                    Tasks
+                    <div class="header">
+                        <h2>Materials</h2>
+                        <i class='bx bx-plus' onclick="popup()"></i>
+                    </div>
+                    
+                    <div class="container">
+
+                    </div>
                 </div>
 
                 <div class="files">
                     <!-- This is where we will display Documents and other files made by the user -->
-                    Files
+                    <div class="header">
+                        <h2>Documents</h2>
+                        <i class='bx bxs-file-plus'></i>
+                    </div>
+                    
+
+                    <div class="container">
+
+                    </div>
                 </div>
 
             </div>

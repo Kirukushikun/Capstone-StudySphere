@@ -35,6 +35,9 @@ Route::patch('task/{id}', [StudyMaterialController::class, 'update'])->name('tas
 Route::get('/repository', [StudyMaterialController::class, 'repository'])->name('repository');
 Route::post('/repository', [StudyMaterialController::class, 'repositoryPost'])->name('repository.post');
 
+Route::get('/quizzes', [StudyMaterialController::class, 'quizzes'])->name('quizzes');
+Route::post('/quizzes', [StudyMaterialController::class, 'quizzesPost'])->name('quizzes.post');
+
 Route::get('/subjectview/{id}', [StudyMaterialController::class, 'subjectView'])->name('subjectview');
 
 

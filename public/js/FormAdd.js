@@ -11,6 +11,12 @@ function popupUTF(){
     document.querySelector(".EditTask").classList.remove("Active");
 }
 
+function popupQF(){
+    document.querySelector(".AddQuiz").classList.add("Active");
+}function popdownQF(){
+    document.querySelector(".AddQuiz").classList.remove("Active");
+}
+
 function popupSF(){
     document.querySelector(".AddSubject").classList.add("Active");
 }function popdownSF(){
