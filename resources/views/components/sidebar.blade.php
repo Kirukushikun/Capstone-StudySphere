@@ -35,7 +35,7 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="">
+                    <a href="/calendar">
                         <i class='bx bx-calendar icon' ></i>
                         <span class="text nav-text">Calendar</span>
                     </a>

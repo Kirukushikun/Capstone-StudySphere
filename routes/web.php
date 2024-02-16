@@ -66,3 +66,10 @@ Route::get('/contact', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/calendar', function(){
+    if(Auth::check()){
+        return view('/calendar');
+    }
+    return view('login');
+});
