@@ -17,6 +17,12 @@ function popupQF(){
     document.querySelector(".AddQuiz").classList.remove("Active");
 }
 
+function popupQuestion(){
+    document.querySelector(".AddQuestion").classList.add("Active");
+}function popdownQuestion(){
+    document.querySelector(".AddQuestion").classList.remove("Active");
+}
+
 function popupSF(){
     document.querySelector(".AddSubject").classList.add("Active");
 }function popdownSF(){

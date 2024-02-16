@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\TaskManager;
 use App\Models\Subjects;
 use App\Models\Quizzes;
+use App\Models\Question;
+use App\Models\Choice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -124,8 +126,42 @@ class StudyMaterialController extends Controller
 
     function quizView($id){
         $quiz = Quizzes::find($id);
-        return view('quizview', ['quiz' => $quiz]);
+        $questions = Question::where('quiz_id', $id)->get();
+
+        $choices = [];
+
+        foreach($questions as $question){
+            $questionChoices = Choice::where('question_id', $question->id)->get();
+            $choices[$question->id] = $questionChoices;
+        }
+
+        return view('quizview', [
+            'quiz' => $quiz,
+            'questions' => $questions,
+            'choices' => $choices
+        ]);
     }
 
+    function questionPost($id, Request $request){
+        $question['question_text'] = $request->question_text;
+        $question['quiz_id'] = $id;
+        $question['user_id'] = Auth::user()->id;
+
+        $user = Question::create($question);
+        $questionID = $user->id;
+
+        $choices['correct_choice'] = $request->correct_choice;
+        $choices['choice_text_1'] = $request->choice_text_1;
+        $choices['choice_text_2'] = $request->choice_text_2;
+        $choices['choice_text_3'] = $request->choice_text_3;
+        $choices['choice_text_4'] = $request->choice_text_4;
+        $choices['user_id'] = Auth::user()->id;
+        $choices['question_id'] = $questionID;
+
+        $saved = Choice::create($choices);
+
+        return redirect()->route('quizview', ['id' => $id]);
+    }
+    
 
 }

@@ -39,8 +39,9 @@ Route::get('/quizzes', [StudyMaterialController::class, 'quizzes'])->name('quizz
 Route::post('/quizzes', [StudyMaterialController::class, 'quizzesPost'])->name('quizzes.post');
 
 Route::get('/quizview/{id}', [StudyMaterialController::Class, 'quizView'])->name('quizview');
-
 Route::get('/subjectview/{id}', [StudyMaterialController::class, 'subjectView'])->name('subjectview');
+
+Route::post('/quizview/{id}', [StudyMaterialController::Class, 'questionPost'])->name('question.post');
 
 
 Route::get('/', function () {

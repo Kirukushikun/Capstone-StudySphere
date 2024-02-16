@@ -56,7 +56,6 @@
 @section('addquiz')
 <form class="AddQuiz" action="{{ route('quizzes.post') }}" method="POST">
     @csrf 
-
     <div class="fillup">
         <h1>Make Quiz Container</h1>
         <label for="name">Quiz Name:</label>
@@ -76,3 +75,7 @@
 
 </form>
 @endsection
+
+<!-- @section('addquestion')
+
+@endsection -->

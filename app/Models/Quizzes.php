@@ -22,4 +22,5 @@ class Quizzes extends Model
         'subject',
         'user_id',
     ];
+    
 }
