@@ -35,16 +35,11 @@
 
                         <div class="btns">
                             <button>
-                                <i class='bx bx-pencil' onclick="location.href='{{ route('quiz.edit', $quiz->id) }}' "></i>
+                                <i class='bx bx-pencil' onclick=""></i>
                             </button>
-                            <form action="{{route('quiz.delete', $quiz->id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit">
-                                    <i class='bx bx-trash' ></i>
-                                </button>
-                            </form>
-
+                            <button>
+                                <i class='bx bx-trash' onclick=""></i>
+                            </button>
                         </div>
 
                         <div class="details">
@@ -74,16 +69,31 @@
 
         </div>
 
-        @yield('addquiz')
+        <form class="EditQuiz" action="{{ route('quiz.update', $quizID->id) }}" method="POST">
+            <div class="fillup">
+                @csrf
+                @method('PATCH')
+                <h1>Edit Quiz Container</h1>
+                <label for="name">Quiz Name:</label>
+                <input type="text" name="name" value='{{$quizID->name}}' required>
+
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject" value="{{$quizID->subject}}" required>
+
+                <label for="description" >Description:</label>
+                <textarea name="description"  cols="30" rows="10" required>{{$quizID->description}}</textarea>
+
+                <div class="btns">
+                    <button type="submit" id="btnAddTask">Save</button>
+                    <button type="button" class="close" id="btnCancel" onclick="window.location.href='{{ route('quizzes') }}'">Cancel</button>
+                </div>        
+            </div>
+        </form>
 
     </section>
 
     <script src="{{ asset('js/formAdd.js') }}"></script>
     <script src="{{ asset('js/sideBar.js') }}"></script>
-    <script>
-
-
-    </script>
 
 
 </body>

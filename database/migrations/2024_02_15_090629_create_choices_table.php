@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('choice_text_3');
             $table->string('choice_text_4');
             $table->string('correct_choice');
+
+            $table->unsignedBigInteger('quiz_id');
+            $table->foreign('quiz_id')->references('id')->on('quizzes');
             
             $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions');

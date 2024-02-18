@@ -48,8 +48,7 @@ class StudyMaterialController extends Controller
         return redirect()->route('taskmanager');
     }
 
-    function edit($id)
-    {
+    function edit($id) {
         $taskID = TaskManager::findOrFail($id);
         $tasks = TaskManager::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
 
@@ -157,11 +156,37 @@ class StudyMaterialController extends Controller
         $choices['choice_text_4'] = $request->choice_text_4;
         $choices['user_id'] = Auth::user()->id;
         $choices['question_id'] = $questionID;
+        $choices['quiz_id'] = $id;
 
         $saved = Choice::create($choices);
 
         return redirect()->route('quizview', ['id' => $id]);
     }
     
+    function quizEdit($id){
+        $quizID = Quizzes::findOrFail($id);
+        $quizzes = Quizzes::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
+
+        return view('editQuiz', ['quizzes' => $quizzes], ['quizID' => $quizID] );
+    }
+
+    function quizUpdate(Request $request, $id){
+        $update['name'] = $request->name;
+        $update['subject'] = $request->subject;
+        $update['description'] = $request->description;
+
+        $quiz = Quizzes::findOrFail($id);
+        $quiz->update($update);
+        return redirect()->route('quizzes');
+    }
+
+    function quizDelete($id){
+        $deletequiz = Quizzes::findOrFail($id);
+        $deletechoice = Choice::where('quiz_id', $id)->delete();
+        $deletequestions = Question::where('quiz_id', $id)->delete();
+        $deletequiz->delete();        
+
+        return redirect()->route('quizzes');
+    }
 
 }

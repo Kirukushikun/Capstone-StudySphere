@@ -22,6 +22,7 @@ class Choice extends Model
         'choice_text_4',
         'correct_choice',
         'user_id',
+        'quiz_id',
         'question_id',
     ];
 }

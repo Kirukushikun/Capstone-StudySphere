@@ -10,6 +10,7 @@
     --text-color2:#1d1d1d;
 
     --primary-color-opposite: #4680A8;
+    --hover-color:#eeeeee ;
 
     /* Transition */
     --tran-03: all 0.2s ease;
@@ -242,8 +243,58 @@ body.dark{
 
 
 /* VIEW SUBJECTS */
+.subjectContent{
+    height: 100%;
+}
+
 .userDocuments{
-    background-color: #4680A8;
     width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas: "container1 container2";
+    gap: 10px;
+}
+
+.userDocuments .materials .header, .files .header{
+    transition: var(--tran-04);
+    background-color: var(--primary-color);
+    border-radius: 6px 6px 0 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.userDocuments .materials, .files{
+    display: flex;
+    flex-direction: column;
+}
+
+.userDocuments .materials .container,
+.userDocuments .files .container{
+    transition: var(--tran-04);
+        
+    font-weight: 400;
+    background-color: var(--sidebar-color);
+    border-bottom: 3px solid var(--primary-color);
+    border-radius: 0 0 6px 6px;
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
 }
 /* VIEW SUBJECTS */
+
+.container .userData{
+    transition: var(--tran-04);
+    width: 100%;
+    padding: 10px 5px;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-color-light);
+}
+
+.container .userData:hover{
+    background-color: var(--hover-color) ;
+    color: te;
+}

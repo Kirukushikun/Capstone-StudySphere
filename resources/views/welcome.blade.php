@@ -58,7 +58,7 @@
                     </ul>
                 </div>
                 <div class="image">
-                    <img src="{{ asset('sources/Sql-Laptop.png') }}" alt="Image Unavailable">
+                    <img src="{{ asset('sources/Sql-Laptop1.png') }}" alt="Image Unavailable">
                 </div> 
             </div>
         </div>

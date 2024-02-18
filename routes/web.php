@@ -38,6 +38,10 @@ Route::post('/repository', [StudyMaterialController::class, 'repositoryPost'])->
 Route::get('/quizzes', [StudyMaterialController::class, 'quizzes'])->name('quizzes');
 Route::post('/quizzes', [StudyMaterialController::class, 'quizzesPost'])->name('quizzes.post');
 
+Route::get('quiz/edit/{id}', [StudyMaterialController::class, 'quizEdit'])->name('quiz.edit');
+Route::patch('quiz/{id}', [StudyMaterialController::class, 'quizUpdate'])->name('quiz.update');
+Route::delete('quizzes/{id}', [StudyMaterialController::class, 'quizDelete'])->name('quiz.delete');
+
 Route::get('/quizview/{id}', [StudyMaterialController::Class, 'quizView'])->name('quizview');
 Route::get('/subjectview/{id}', [StudyMaterialController::class, 'subjectView'])->name('subjectview');
 
