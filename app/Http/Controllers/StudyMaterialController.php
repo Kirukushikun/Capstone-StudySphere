@@ -98,10 +98,40 @@ class StudyMaterialController extends Controller
     }
 
     function subjectView($id){
-        $subject = Subjects::find($id);
+        $subjectID = Subjects::find($id);
 
-        return view('subjectview', ['subject' => $subject]);
+        $tasks = TaskManager::where('subject', $subjectID->subject)->get();
+        $quizzes = Quizzes::where('subject', $subjectID->subject)->get();
+
+        return view('subjectview', [
+            'subjects' => $subjectID,
+            'tasks' => $tasks,
+            'quizzes' => $quizzes
+        ]);
     }
+
+    function subjectEdit($id){
+        $edit = Subjects::findOrFail($id);
+        $subjects = Subjects::where('user_id', Auth::id())->get();
+        return view('editSubject', ['edit' => $edit, 'subjects' => $subjects]);
+    }
+
+    function subjectUpdate(Request $request, $id){
+        $data['subject'] = $request->subject;
+        $data['description'] = $request->description;
+
+        $update = Subjects::findOrFail($id);
+        $update->update($data);
+        
+        return redirect()->route('repository');
+    }
+
+    function subjectDelete($id){
+        $deletesub = Subjects::findOrFail($id);
+        $deletesub->delete();
+        return redirect()->route('repository');
+    }
+    
 
 
     function quizzes(){

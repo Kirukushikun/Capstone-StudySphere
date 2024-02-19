@@ -44,7 +44,6 @@
                                     <i class='bx bx-trash' ></i>
                                 </button>
                             </form>
-
                         </div>
 
                         <div class="details">

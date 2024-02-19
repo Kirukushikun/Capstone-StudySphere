@@ -35,6 +35,11 @@ Route::patch('task/{id}', [StudyMaterialController::class, 'update'])->name('tas
 Route::get('/repository', [StudyMaterialController::class, 'repository'])->name('repository');
 Route::post('/repository', [StudyMaterialController::class, 'repositoryPost'])->name('repository.post');
 
+
+Route::get('subject/{id}', [StudyMaterialController::class, 'subjectEdit'])->name('subject.edit');
+Route::patch('subject/{id}', [StudyMaterialController::class, 'subjectUpdate'])->name('subject.update');
+Route::delete('subject/{id}', [StudyMaterialController::class, 'subjectDelete'])->name('subject.delete');
+
 Route::get('/quizzes', [StudyMaterialController::class, 'quizzes'])->name('quizzes');
 Route::post('/quizzes', [StudyMaterialController::class, 'quizzesPost'])->name('quizzes.post');
 

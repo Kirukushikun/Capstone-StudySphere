@@ -27,27 +27,44 @@
             <div class="addQuizzes">
                 <i class='bx bx-plus' class="popup" onclick="popupQuestion()"></i>
             </div>
-
+            @foreach ($questions as $question)
             <div class="question-container">
-                @foreach ($questions as $question)
                     <div class="questionDetails">
-                        <p>{{ $question->question_text }}</p>
-                        <ul>
+                        <h2>{{ $question->question_text }}</h2>
+                        <div class="questionChoices">
                             @foreach ($choices[$question->id] as $choice)
-                                <li>{{ $choice->choice_text_1 }}</li>
-                                <li>{{ $choice->choice_text_2 }}</li>
-                                <li>{{ $choice->choice_text_3 }}</li>
-                                <li>{{ $choice->choice_text_4 }}</li>
+                                <div>
+                                    <label for="">Correct Answer:</label>
+                                    {{ $choice->correct_choice }}
+                                </div>
+                                <div>
+                                    <label for="">Choice 2:</label>
+                                    {{ $choice->choice_text_2 }}
+                                </div>
+                                <div>
+                                    <label for="">Choice 3:</label>   
+                                    {{ $choice->choice_text_3 }}
+                                </div>
+                                <div>
+                                    <label for="">Choice 4:</label>
+                                    {{ $choice->choice_text_4 }}
+                                </div>
                             @endforeach
-                        </ul>
+                        </div>
                     </div>
 
                     <div class="questionBtns">
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <button>
+                            <i class='bx bx-pencil'></i>
+                        </button>
+                        <form>
+                            <button type="submit">
+                                <i class='bx bx-trash' ></i>
+                            </button>
+                        </form>
                     </div>
-                @endforeach
             </div>
+            @endforeach
         </div>
 
         <form class="AddQuestion" action="{{route('question.post', ['id'=>$quiz->id])}}" method="POST">
@@ -87,5 +104,6 @@
     </div>
     
     <script src="{{ asset('js/FormAdd.js') }}"></script>
+    <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>

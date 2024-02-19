@@ -19,7 +19,7 @@
     <section class="home">
         
         <div class="subjectHeader">
-            <h1>{{ $subject->subject }}</h1>
+            <h1>{{ $subjects->subject }}</h1>
             <div class="user">
                 <span>Hi, <b>{{ Auth::user()->firstname }}</b></span>
             </div>            
@@ -33,22 +33,21 @@
                     <!-- This is where we will display Tasks and todo list made by the user -->
                     <div class="header">
                         <h2>Materials</h2>
-                        <i class='bx bx-plus' onclick="popup()"></i>
+                        <i class='bx bx-plus' onclick="popupAM()"></i>
                     </div>
                     
                     <div class="container">
+                        @foreach($tasks as $task)
                         <div class="userData">
-                            Item 1
+                            {{$task->title}}
                         </div>
+                        @endforeach
+
+                        @foreach($quizzes as $quiz)
                         <div class="userData">
-                            Item 2
+                            {{$quiz->name}}
                         </div>
-                        <div class="userData">
-                            Item 3
-                        </div>
-                        <div class="userData">
-                            Item 4
-                        </div>
+                        @endforeach
                     </div>
                 </div>
 
@@ -71,11 +70,13 @@
 
         </div>
 
-        @yield('formAdd')
-
+        @yield('addmaterial')
+        @yield('addtask')
+        @yield('addquiz')
+        
     </section>
 
-    <script src="{{ asset('js/adddocument.js') }}"></script>
+    <script src="{{ asset('js/FormAdd.js') }}"></script>
     <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>

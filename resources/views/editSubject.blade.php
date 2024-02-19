@@ -38,9 +38,9 @@
 
                     <div class="btns">
                         <button>
-                            <i class='bx bx-pencil' onclick="location.href='{{ route('subject.edit', $subject->id) }}' "></i>
+                            <i class='bx bx-pencil'></i>
                         </button>
-                        <form action="{{route('subject.delete', $subject->id)}}" method="post">
+                        <form>
                             @csrf
                             @method('DELETE')
                             <button type="submit">
@@ -67,7 +67,24 @@
 
         </div>
 
-        @yield('addsubject')
+        <form class="EditSubject" action="{{route('subject.update', $edit->id)}}" method="POST">
+            @csrf
+            @method('PATCH')
+            <div  class="fillup">
+                <h1>Edit Subject</h1>
+
+                <label for="subject">Subject Name:</label>
+                <input type="text" placeholder="Subject" name="subject" value="{{$edit->subject}}" required>
+
+                <label for="description">Description:</label>
+                <textarea name="description" cols="30" rows="10" required>{{$edit->description}}</textarea>
+
+                <div class="btns">
+                    <button type="submit" id="btnAddTask" >Update</button>
+                    <button type="button" class="close" id="btnCancel" onclick="location.href='{{route('repository')}}'">Cancel</button>
+                </div>
+            </div>
+        </form>
 
     </section>
 
