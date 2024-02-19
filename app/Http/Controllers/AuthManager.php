@@ -28,17 +28,46 @@ class AuthManager extends Controller
 
     function signupPost(Request $request){
 
-        $data['firstname'] = $request->firstname;
-        $data['lastname'] = $request->lastname;
-        $data['email'] = $request->email;
-        $data['password'] = Hash::make($request->password);
+        $password = $request->password;
+        $confirm = $request->cpassword;
 
-        $user = User::create($data);
+        if($password === $confirm){
+            $data['firstname'] = $request->firstname;
+            $data['lastname'] = $request->lastname;
+            $data['email'] = $request->email;
+            $data['password'] = Hash::make($request->cpassword);
 
-        if(!$user){
-            return redirect(route('signup'))->with("error", "Credentials invalid, please try again.");
+            $user = User::create($data);
+
+            return redirect()->intended(route('login'));
+        }else{
+            return redirect(route('signup'))->with("error", "Password not match. Please try again");
         }
-        return redirect()->intended(route('login'));
+        
+    }
+
+    function updatePass(Request $request){
+        $user = User::where('email', $request->email)->first();
+        if(!$user){
+            return redirect()->back()->with('error', 'No user found with this email address.');
+        }
+
+        // Check if the provided old password matches the user's current password
+        if (!Hash::check($request->old_password, $user->password)) {
+            return redirect()->back()->with('error', 'The provided old password is incorrect.');
+        }
+
+        $npass = $request->npassword;
+        $cpass = $request->cpassword;
+
+        if($npass !== $cpass){
+            return redirect()->back()->with('error', 'The provided password is not match.');
+        }else{
+            $user->password = Hash::make($cpass);
+            $user->save();
+            return redirect()->back()->with('status', 'Password changed successfully.');
+        }
+        
     }
 
     function logout(){

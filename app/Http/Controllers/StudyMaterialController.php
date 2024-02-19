@@ -192,6 +192,19 @@ class StudyMaterialController extends Controller
 
         return redirect()->route('quizview', ['id' => $id]);
     }
+
+    function questionDelete($quiz_id, $question_id ){
+        $deleteChoices = Choice::where('question_id', $question_id)->get();
+        foreach ($deleteChoices as $choice) {
+            $choice->delete();
+        }
+        $deleteQuestion = Question::findOrFail($question_id);
+        $deleteQuestion->delete();
+
+        $quizID = Quizzes::findOrFail($quiz_id);
+
+        return redirect()->route('quizview', ['id' => $quiz_id]);
+    }
     
     function quizEdit($id){
         $quizID = Quizzes::findOrFail($id);

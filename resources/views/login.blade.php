@@ -26,18 +26,18 @@
             <input type="password" name="password" placeholder="Password"required/>
         </div>
 
-        <div>
-            <a href="">Forgot Password?</a>
-        </div>
-
         <div class="submit">
             <button type="submit" id="login">LOGIN</button>
         </div>
         
-
-        <div >
+        <div>
             <p>Don't have an account? <a href="/signup">Signup</a></p>
         </div>
+
+        <div class="forgot">
+            <a href="/forgot">Account Settings</a>
+        </div>
+
     </form>
 
     <img src="{{ asset('sources/Background.png') }}" alt="Image Unavailable" id="image1" />

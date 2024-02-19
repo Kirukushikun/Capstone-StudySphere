@@ -30,17 +30,13 @@ Form{
 
     border-radius: 6px;
 
-    width: auto;
+    width: 350px;
     height: auto;
 }
 Form h1{
     font-size: 35px;
     margin-bottom: 20px;
     letter-spacing: 2px;
-
-    width: 330px;
-
-    text-align: center;
 }
 
 Form a{
@@ -51,24 +47,36 @@ Form a:hover{
     color: #4680A8;
 }
 
-Form .email, .password, .submit{
+form .fullname{
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
+    gap: 12px;
+    margin-bottom: -2px;
 }
-Form input{
+
+form .firstname, .lastname, .email, .password, .npassword, .confirmpassword{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.email, .password, .npassword, .confirmpassword{
     width: 100%;
+    margin-bottom: -2px;
+}
+
+form input{
     padding: 12px;
 
     border-radius: 6px;
     border-style: solid;
     border-width: 2px;
-}Form input:hover{
+}form input:hover{
     border-color: #72B5C5;
 }
 
+form .submit{
+    width: 100%;
+    margin-top: 20px;
+}
 Form button{
     width: 100%;
     padding: 10px;
@@ -86,6 +94,7 @@ Form button{
 }Form button:hover{
     background-color: #4680A8;
 }
+
 #image1{
     width: 25%;
     position: absolute;
@@ -102,11 +111,34 @@ Form button{
 
 form .error p{
     color: #e06d6d;
+}form .success p{
+    color: #6de088;
 }
 
-.forgot a{
-    margin-top: 0;
-    font-size: 20px;
-    color: rgba(84, 134, 147, 0.684);
+.login{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #72B5C5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    width: 100%;
+    height: auto;
 }
-
+.login p{
+    width: 100%;
+}
+.login a{
+    width: 100%;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    font-weight: 600;
+    letter-spacing: 2px;
+}.login a:hover{
+    color: white;
+    background-color: #72B5C5;
+}

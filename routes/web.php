@@ -17,6 +17,7 @@ use App\Http\Controllers\StudyMaterialController;
 */
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
+Route::patch('/forgot', [AuthManager::class, 'updatePass'])->name('update.password');
 
 Route::get('/signup', [AuthManager::class, 'signup'])->name('signup');
 Route::post('/signup', [AuthManager::class, 'signupPost'])->name('signup.post');
@@ -51,6 +52,7 @@ Route::get('/quizview/{id}', [StudyMaterialController::Class, 'quizView'])->name
 Route::get('/subjectview/{id}', [StudyMaterialController::class, 'subjectView'])->name('subjectview');
 
 Route::post('/quizview/{id}', [StudyMaterialController::Class, 'questionPost'])->name('question.post');
+Route::delete('question/{quiz_id}/{question_id}', [StudyMaterialController::Class, 'questionDelete'])->name('question.delete');
 
 
 Route::get('/', function () {
@@ -81,4 +83,8 @@ Route::get('/calendar', function(){
         return view('/calendar');
     }
     return view('login');
+});
+
+Route::get('/forgot', function() {
+    return view('forgot');
 });

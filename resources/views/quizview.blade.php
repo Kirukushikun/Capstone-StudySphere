@@ -57,7 +57,9 @@
                         <button>
                             <i class='bx bx-pencil'></i>
                         </button>
-                        <form>
+                        <form action="{{ route('question.delete', ['quiz_id' => $question->quiz_id, 'question_id' => $question->id]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
                             <button type="submit">
                                 <i class='bx bx-trash' ></i>
                             </button>
