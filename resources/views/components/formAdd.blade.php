@@ -79,9 +79,9 @@
 @section('addmaterial')
 <div class="AddMaterial">
     <div  class="fillup">
-        <button onclick="popupTF2()">Add Task</button>
-        <button onclick="popupQF2()">Add Quiz</button>
-        <button onclick="popdownAM()">Cancel</button>
+        <button class="task" onclick="popupTF2()">Add Task</button>
+        <button class="quiz" onclick="popupQF2()">Add Quiz</button>
+        <button class="cancel" onclick="popdownAM()">Cancel</button>
     </div>
 </div>
 @endsection

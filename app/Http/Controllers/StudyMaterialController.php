@@ -88,8 +88,6 @@ class StudyMaterialController extends Controller
         // Redirect the user back to the task manager page
         return redirect()->route('taskmanager')->with('success', 'Task updated successfully');
     }
-
-
     function repository(){
 
         if(Auth::check()){
@@ -146,8 +144,6 @@ class StudyMaterialController extends Controller
         return redirect()->route('repository');
     }
     
-
-
     function quizzes(){
         if(Auth::check()){
             $quizzes = Quizzes::where('user_id', Auth::id())->get();
@@ -194,7 +190,6 @@ class StudyMaterialController extends Controller
         $questionID = $user->id;
 
         $choices['correct_choice'] = $request->correct_choice;
-        $choices['choice_text_1'] = $request->choice_text_1;
         $choices['choice_text_2'] = $request->choice_text_2;
         $choices['choice_text_3'] = $request->choice_text_3;
         $choices['choice_text_4'] = $request->choice_text_4;
@@ -218,6 +213,43 @@ class StudyMaterialController extends Controller
         $quizID = Quizzes::findOrFail($quiz_id);
 
         return redirect()->route('quizview', ['id' => $quiz_id]);
+    }
+
+    function questionEdit($quiz_id, $question_id, $choices_id ){
+        $activeQuiz = Quizzes::findOrFail($quiz_id);
+        $existingQuestion = Question::where('quiz_id', $quiz_id)->get(); //Retrieve All questions that has the same Quiz ID
+        $existingChoices = []; //Retrieve all choices of every question within the Quiz Container
+        foreach($existingQuestion as $question){
+            $questionChoices = Choice::where('question_id', $question->id)->get();
+            $existingChoices[$question->id] = $questionChoices;
+        }
+
+        //Retrieve the current question along with its choices for editing
+        $currentQuestion = Question::findOrFail($question_id);
+        $currentChoices = Choice::findOrFail($choices_id);
+        
+        return view('editQuestion', [
+            'quiz' => $activeQuiz,
+            'questions' => $existingQuestion,
+            'choices' => $existingChoices,
+            'cquestion' => $currentQuestion,
+            'cchoices' => $currentChoices
+        ]);
+    }
+
+    function questionUpdate($question_id, $choice_id, Request $request){
+        $updateQuestion['question_text'] = $request->question_text;
+        $question = Question::findOrFail($question_id);
+        $question->update($updateQuestion);
+        
+        $updateChoices['correct_text'] = $request->correct_text;
+        $updateChoices['choice_text_2'] = $request->choice_text_2;
+        $updateChoices['choice_text_3'] = $request->choice_text_3;
+        $updateChoices['choice_text_3'] = $request->choice_text_3;
+        $choices = Choice::findOrFail($choice_id);
+        $choices->update($updateChoices);
+
+        return redirect()->route('quizview', ['id' => $question->quiz_id]);
     }
     
     function quizEdit($id){
@@ -244,6 +276,41 @@ class StudyMaterialController extends Controller
         $deletequiz->delete();        
 
         return redirect()->route('quizzes');
+    }
+
+    function quizTake($quiz_id){
+        $quizzes = Quizzes::findOrFail($quiz_id);
+        $questions = Question::where('quiz_id', $quiz_id)->get();
+        $choices = [];
+
+        foreach($questions as $question){
+            $questionChoices = Choice::where('question_id', $question->id)->get();
+            $choices[$question->id] = $questionChoices;
+        }
+
+        return view('quiztake', [
+            'questions' => $questions,
+            'choices' => $choices,
+            'quizzes' => $quizzes
+        ]);
+    }
+
+    function materialTaskAdd($id, Request $request){
+        $subject = Subjects::findOrFail($id);
+
+        $data['title'] = $request->title;
+        $data['subject'] = $subject->subject;
+        $data['due_date'] = $request->due_date;
+        $data['priority'] = $request->priority;
+        $data['status'] = $request->status;
+
+        // Add user ID to the validated data
+        $data['user_id'] = auth()->user()->id;
+
+        // Create the task using the validated data
+        $user = TaskManager::create($data);
+
+        return redirect()->route('subjectview', ['id' => $id]);
     }
 
 }

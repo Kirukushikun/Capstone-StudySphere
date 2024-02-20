@@ -54,17 +54,20 @@ function popupAM(){
 }
 
 function popupTF2(){
-    document.querySelector(".AddTask").classList.add("Active");
+    document.querySelector(".AddTaskMaterial").classList.add("Active");
+    
+    document.querySelector(".AddMaterial").classList.remove("Active");
+    document.querySelector(".AddQuizMaterial").classList.remove("Active");
+}function popdownTF2(){
+    document.querySelector(".AddTaskMaterial").classList.remove("Active");
+}
+
+
+function popupQF2(){
+    document.querySelector(".AddQuizMaterial").classList.add("Active");
 
     document.querySelector(".AddMaterial").classList.remove("Active");
-    document.querySelector(".AddQuiz").classList.remove("Active");
-}function popdownTF2(){
-    document.querySelector(".AddTask").classList.remove("Active");
-}
-function popupQF2(){
-    document.querySelector(".AddQuiz").classList.add("Active");
-    document.querySelector(".AddMaterial").classList.remove("Active");
-    document.querySelector(".AddTask").classList.remove("Active");
+    document.querySelector(".AddTaskMaterial").classList.remove("Active");
 }function popdownQF2(){
-    document.querySelector(".AddQuiz").classList.remove("Active");
+    document.querySelector(".AddQuizMaterial").classList.remove("Active");
 }

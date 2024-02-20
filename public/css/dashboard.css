@@ -134,5 +134,13 @@ body.dark{
     border-radius: 5px;
     padding: 3px 5px;
 }
+/* .Repository .items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+.Repository .items .description{
+    width: 700px;
+}
 
 

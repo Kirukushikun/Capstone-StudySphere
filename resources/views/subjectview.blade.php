@@ -71,8 +71,58 @@
         </div>
 
         @yield('addmaterial')
-        @yield('addtask')
-        @yield('addquiz')
+        <form class="AddTaskMaterial" action="{{ route('taskmanager.post')}}" method="POST">
+            @csrf
+            <div  class="fillup">
+                <h1>Add Task</h1>
+                <input type="text" placeholder="Title" name="title" required>
+                <input type="text" placeholder="Subject" name="subject" required value="{{$subjects->subject}}">
+
+                <label for="due">Due Date:</label>
+                <input type="date" name="due_date" required>
+
+                <label for="priority">Priority Level:</label>
+                <select class="form-control" id="priority" name="priority" required>
+                    <option value="least">Least</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="prioritize">Prioritize</option>
+                </select>
+
+                <label for="status">Status:</label>
+                <select class="form-control" id="status" name="status" required>
+                    <option value="pending">Pending</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+
+                <div class="btns">
+                    <button type="submit" id="btnAddTask" >Add</button>
+                    <button type="button" class="close" id="btnCancel" onclick="popdownTF2()">Cancel</button>
+                </div>
+            </div>
+
+        </form>
+
+        <form class="AddQuizMaterial" action="{{ route('quizzes.post') }}" method="POST">
+        @csrf 
+        <div class="fillup">
+            <h1>Make Quiz Container</h1>
+            <label for="name">Quiz Name:</label>
+            <input type="text" name="name" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" required value="{{$subjects->subject}}">
+
+            <label for="description">Description:</label>
+            <textarea name="description"  cols="30" rows="10" required></textarea>
+
+            <div class="btns">
+                <button type="submit" id="btnAddTask">Add</button>
+                <button type="button" class="close" id="btnCancel" onclick="popdownQF2()">Cancel</button>
+            </div>        
+        </div>
+
+    </form>
         
     </section>
 

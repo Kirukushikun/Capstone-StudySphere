@@ -59,7 +59,7 @@
                     @foreach($subjects as $subject)
                     <div class="items">
                         <h3>{{$subject->subject}}</h3>
-                        <p>{{$subject->description}}</p>
+                        <p class="description">{{$subject->description}}</p>
                         <p>20 items</p>
                     </div>                    
                     @endforeach

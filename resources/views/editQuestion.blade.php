@@ -25,11 +25,11 @@
         <div class="quizzesContent">
 
             <div class="addQuizzes">
-                <button onclick="location.href='{{route('quiz.take', ['quiz_id' => $quiz->id])}}'">
+                <button >
                     <i class='bx bx-brain'></i>
                     Take Quiz
                 </button>
-                <i class='bx bx-plus' class="popup" onclick="popupQuestion()"></i>
+                <i class='bx bx-plus' class="popup"></i>
             </div>
 
             @foreach ($questions as $question)
@@ -60,9 +60,9 @@
 
                     <div class="questionBtns">
                         <button>
-                            <i class='bx bx-pencil' onclick="location.href='{{route('question.edit', ['quiz_id' => $question->quiz_id, 'question_id' => $question->id, 'choices_id' => $choice->id])}}'"></i>
+                            <i class='bx bx-pencil'></i>
                         </button>
-                        <form action="{{ route('question.delete', ['quiz_id' => $question->quiz_id, 'question_id' => $question->id]) }}" method="post">
+                        <form >
                             @csrf
                             @method('DELETE')
                             <button type="submit">
@@ -74,31 +74,32 @@
             @endforeach
         </div>
 
-        <form class="AddQuestion" action="{{route('question.post', ['id'=>$quiz->id])}}" method="POST">
+        <form class="EditQuestion" action="{{route('question.update', ['question_id' => $cquestion->id, 'choice_id' => $cchoices->id ]) }}" method="POST">
             @csrf
+            @method('PATCH')
             <div class="fillup">
-                <h1>Create Question</h1>
+                <h1>Edit Question</h1>
                 <label for="question_text">Question:</label>
-                <input type="text" name="question_text">
-
+                <input type="text" name="question_text" value="{{ $cquestion->question_text }}">
+                
                 <label for="correct_choice">Correct Answer:</label>
-                <input type="text" name="correct_choice">
+                <input type="text" name="correct_choice" value="{{ $cchoices->correct_choice }}">
 
                 <label for="choice_text_2">Option 2:</label>
-                <input type="text" name="choice_text_2">
+                <input type="text" name="choice_text_2" value="{{ $cchoices->choice_text_2 }}">
 
 
 
                 <label for="choice_text_3">Option 3:</label>
-                <input type="text" name="choice_text_3">
+                <input type="text" name="choice_text_3" value="{{ $cchoices->choice_text_3 }}">
 
                 <label for="choice_text_4">Option 4:</label>
-                <input type="text" name="choice_text_4">        
+                <input type="text" name="choice_text_4" value="{{ $cchoices->choice_text_4 }}">        
 
 
                 <div class="btns">
-                    <button type="submit" id="btnAddTask">Create</button>
-                    <button type="button" class="close" id="btnCancel" onclick="popdownQuestion()">Cancel</button>
+                    <button type="submit" id="btnAddTask">Update</button>
+                    <button type="button" class="close" id="btnCancel" onclick="location.href='{{ route('quizview', $quiz->id) }}'">Cancel</button>
                 </div>   
 
             </div>

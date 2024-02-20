@@ -16,7 +16,6 @@ class Choice extends Model
      */
     protected $fillable = [
         'id',
-        'choice_text_1',
         'choice_text_2',
         'choice_text_3',
         'choice_text_4',
