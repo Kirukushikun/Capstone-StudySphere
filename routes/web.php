@@ -24,11 +24,14 @@ Route::post('/signup', [AuthManager::class, 'signupPost'])->name('signup.post');
 
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
+Route::post('/contact', [AuthManager::class, 'submit'])->name('submit');
+
+Route::get('/dashboard', [StudyMaterialController::class, 'dashboard'])->name('dashboard');
+
 Route::get('/taskmanager', [StudyMaterialController::class, 'task'])->name('taskmanager');
 Route::post('/taskmanager', [StudyMaterialController::class, 'taskPost'])->name('taskmanager.post');
-Route::delete('/taskmanager/{task}', [StudyMaterialController::class, 'taskDelete'])->name('task.delete');
 
-// Out of this world functions
+Route::delete('/taskmanager/{task}', [StudyMaterialController::class, 'taskDelete'])->name('task.delete');
 Route::get('task/edit/{id}', [StudyMaterialController::class, 'edit'])->name('task.edit');
 Route::patch('task/{id}', [StudyMaterialController::class, 'update'])->name('task.update');
 
@@ -73,10 +76,6 @@ Route::get('/studymaterial', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
 Route::get('/calendar', function(){
     if(Auth::check()){

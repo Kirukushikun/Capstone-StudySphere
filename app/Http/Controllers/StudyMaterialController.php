@@ -14,6 +14,20 @@ use Illuminate\Support\Facades\Auth;
 class StudyMaterialController extends Controller
 {   
 
+    function dashboard(){
+        if(Auth::check()){
+
+            $tasks = TaskManager::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
+            $quizzes = Quizzes::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
+            $subject = Subjects::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
+            return view('dashboard', [
+                'tasks' => $tasks,
+                'quizzes' => $quizzes,
+                'subjects' => $subject
+            ]);
+        }
+    }
+
     function task(){
         if(Auth::check()){
             // Retrieve tasks data associated with the authenticated user

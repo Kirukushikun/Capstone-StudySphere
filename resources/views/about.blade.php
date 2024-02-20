@@ -32,7 +32,7 @@
                 <div class="founderDetails">
                     <h2>Founder/Developer</h2>
                     <h1>Iverson Craig G. Guno</h1>
-                    <p>He was born on October 31, 2003, in Concepcion, Capas, Tarlac, and is currently a student at Dominican College of Tarlac, pursuing a Bachelor's degree in Information Technology. An enthusiastic individual with a deep passion for programming, especially in the field of Web Development, he brings to the table a unique combination of creativity and technical expertise. Eager to learn and driven to deepen his knowledge in the Tech Industry, he is on a continuous journey of growth and exploration.</p>
+                    <p>He was born on October 31, 2003, in Concepcion, Tarlac, and is currently a student at Dominican College of Tarlac, pursuing a Bachelor's degree in Information Technology. An enthusiastic individual with a deep passion for programming, especially in the field of Web Development, he brings to the table a unique combination of creativity and technical expertise. Eager to learn and driven to deepen his knowledge in the Tech Industry, he is on a continuous journey of growth and exploration.</p>
                 </div>
             </div>                        
         </div>

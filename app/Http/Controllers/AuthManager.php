@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ContactRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -74,5 +76,15 @@ class AuthManager extends Controller
         Session::flush();
         Auth::logout();
         return redirect()->intended(route('login'));
+    }
+
+    function submit(ContactRequest $request){
+        Mail::to('Iversoncraigg@gmail.com')->send(new ContactMail(
+            $request->fName,
+            $request->lName,
+            $request->email,
+            $request->textarea
+        ));
+        return redirect()->route('/contact')->with('status', 'Email sent!');
     }
 }

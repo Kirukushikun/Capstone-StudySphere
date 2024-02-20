@@ -1,0 +1,138 @@
+:root{
+    /* Colors */
+    /* --body-color: #E4E9F7 ; */
+    --body-color: #e7f1f2 ;
+    --sidebar-color: #FFF;
+    --primary-color: #72B5C5;
+    --primary-color-light: #f2f7f8;
+    --toggle-color: #DDD;
+    --text-color: #333;
+    --text-color2:#1d1d1d;
+
+    --primary-color-opposite: #4680A8;
+
+    /* Transition */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+.home{
+    height: 100vh;
+    width: calc(100% - 250px);
+    position: relative;
+    left: 250px;
+    transition: var(--tran-04);
+    background: var(--body-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar.close ~ .home{
+    left: 88px;
+    width: calc(100% - 88px);
+}
+
+body.dark{
+
+    --body-color: #18191A ;
+    --sidebar-color: #242526;
+    --primary-color: #4680A8;
+    --primary-color-light: #3A3B3C;
+    --toggle-color: #FFF;
+    --text-color: #eeeeee;
+    --text-color2:#f3f3f3;
+
+    --primary-color-opposite: #72B5C5;
+}
+
+.dashboardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 0;
+    width: 100%;
+
+    font-size: 20px;
+    color: var(--text-color);
+}.dashboardHeader h1{
+    font-size: 30px;
+}.dashboardHeader b{
+    color: var(--primary-color);
+}
+
+.content{
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-areas: "container1"
+    "container2";
+
+    padding: 20px;
+    gap: 20px;
+}
+
+.content .container1{
+    grid-area: "container1";
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "num1 num2";
+
+    gap: 20px;
+}.content .container1 .TaskManager{
+    grid-area: "num1";
+
+    border-radius: 6px;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #72B5C5;
+}.content .container1 .Calendar{
+    grid-area: "num2";
+
+    border-radius: 6px;
+    padding: 15px;
+    background-color: #72c599;
+}
+
+.content .container2{
+    grid-area: "container2";
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "num3 num4";
+
+    gap: 20px;
+}.content .container2 .QuizSection{
+    grid-area: "num3";
+
+    border-radius: 6px;
+    padding: 15px;
+    background-color: #9372c5;
+}.content .container2 .Repository{
+    grid-area: "num4";
+
+    border-radius: 6px;
+    padding: 15px;
+    background-color: #c072c5;
+}
+
+.items{
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.items .status{
+    background-color: #e7f1f2;
+    border-radius: 5px;
+    padding: 3px 5px;
+}
+
+

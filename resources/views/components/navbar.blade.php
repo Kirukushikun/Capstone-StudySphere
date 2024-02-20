@@ -4,7 +4,7 @@
     <h1>STUDYSPHERE</h1>
     <div class="links">
         <a href="/">Home</a>
-        <a href="{{ route('studymaterials') }}">Study Materials</a>
+        <a href="/dashboard">Study Materials</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>                
     </div>

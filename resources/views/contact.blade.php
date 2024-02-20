@@ -26,8 +26,8 @@
             </div>
 
             <div class="subContent2">
-                <form action="" class="form">
-
+                <form action="{{route('submit')}}" method="POST" class="form">
+                    @csrf
                     <div class="fullname">
                         <div class="firstname">
                             <label htmlFor="fName">First Name:</label>

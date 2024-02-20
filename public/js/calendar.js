@@ -43,6 +43,7 @@ console.log(eventsArr);
 
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
 function initCalendar() {
+  //to get prev months days and current month all days and rem next month days
   const firstDay = new Date(year, month, 1);
   const lastDay = new Date(year, month + 1, 0);
   const prevLastDay = new Date(year, month, 0);
@@ -51,14 +52,18 @@ function initCalendar() {
   const day = firstDay.getDay();
   const nextDays = 7 - lastDay.getDay() - 1;
 
+  //Update date top of calendar
   date.innerHTML = months[month] + " " + year;
 
+  //Adding days on dom
   let days = "";
 
+  //Prev month days
   for (let x = day; x > 0; x--) {
     days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
   }
 
+  //Current month days
   for (let i = 1; i <= lastDate; i++) {
     //check if event is present on that day
     let event = false;
@@ -93,6 +98,7 @@ function initCalendar() {
     }
   }
 
+  //Next month days
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="day next-date">${j}</div>`;
   }
@@ -109,7 +115,6 @@ function prevMonth() {
   }
   initCalendar();
 }
-
 function nextMonth() {
   month++;
   if (month > 11) {
@@ -173,6 +178,7 @@ function addListner() {
   });
 }
 
+//Goto date and Goto today functionality
 todayBtn.addEventListener("click", () => {
   today = new Date();
   month = today.getMonth();
@@ -181,13 +187,18 @@ todayBtn.addEventListener("click", () => {
 });
 
 dateInput.addEventListener("input", (e) => {
+  //Allowing only numbers remove anything else
   dateInput.value = dateInput.value.replace(/[^0-9/]/g, "");
   if (dateInput.value.length === 2) {
+    //Add slash if two numbers entered
     dateInput.value += "/";
   }
   if (dateInput.value.length > 7) {
+    //Dont allow morethan 7 characters
     dateInput.value = dateInput.value.slice(0, 7);
   }
+
+  //if backspace pressed
   if (e.inputType === "deleteContentBackward") {
     if (dateInput.value.length === 3) {
       dateInput.value = dateInput.value.slice(0, 2);
@@ -197,10 +208,12 @@ dateInput.addEventListener("input", (e) => {
 
 gotoBtn.addEventListener("click", gotoDate);
 
+//Function to goto entered date
 function gotoDate() {
   console.log("here");
   const dateArr = dateInput.value.split("/");
   if (dateArr.length === 2) {
+    //Some date validation
     if (dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4) {
       month = dateArr[0] - 1;
       year = dateArr[1];
