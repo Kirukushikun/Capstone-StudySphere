@@ -15,6 +15,10 @@ use App\Http\Controllers\StudyMaterialController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('files', [StudyMaterialController::class, 'index'])->name('files.index');
+Route::post('files/upload/{id}', [StudyMaterialController::class, 'uploadFile'])->name('files.upload');
+
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
 Route::patch('/forgot', [AuthManager::class, 'updatePass'])->name('update.password');

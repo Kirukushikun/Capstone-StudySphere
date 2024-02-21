@@ -53,6 +53,13 @@ function popupAM(){
     document.querySelector(".AddMaterial").classList.remove("Active");
 }
 
+//ADD DOCUMENTS FORM
+function popupDF(){
+    document.querySelector(".AddDocs").classList.add("Active");
+}function popdownDF(){
+    document.querySelector(".AddDocs").classList.remove("Active");
+}
+
 function popupTF2(){
     document.querySelector(".AddTaskMaterial").classList.add("Active");
     

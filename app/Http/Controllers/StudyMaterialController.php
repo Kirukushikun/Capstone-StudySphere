@@ -8,11 +8,26 @@ use App\Models\Subjects;
 use App\Models\Quizzes;
 use App\Models\Question;
 use App\Models\Choice;
+use App\Models\Files;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
+// use Kreait\Laravel\Firebase\Facades\FirebaseStorage;
+// use Google\Cloud\Storage\StorageClient;
 
 class StudyMaterialController extends Controller
-{   
+{  
+    public function uploadFile($id, Request $request)
+    {   
+        $data['file_name'] = $request->file;
+        $data['subject_id'] = $id;
+        $data['user_id'] = auth()->user()->id;
+
+        $user = Files::create($data);
+
+        return redirect()->back()->with('success', 'Files uploaded successfully.');
+    }
 
     function dashboard(){
         if(Auth::check()){
@@ -114,11 +129,13 @@ class StudyMaterialController extends Controller
 
         $tasks = TaskManager::where('subject', $subjectID->subject)->get();
         $quizzes = Quizzes::where('subject', $subjectID->subject)->get();
+        $documents = Files::where('subject_id', $subjectID->id)->get();
 
         return view('subjectview', [
             'subjects' => $subjectID,
             'tasks' => $tasks,
-            'quizzes' => $quizzes
+            'quizzes' => $quizzes,
+            'documents' => $documents
         ]);
     }
 
@@ -139,6 +156,8 @@ class StudyMaterialController extends Controller
     }
 
     function subjectDelete($id){
+        $deleteDocs = Files::where('subject_id', $id);
+        $deleteDocs->delete();        
         $deletesub = Subjects::findOrFail($id);
         $deletesub->delete();
         return redirect()->route('repository');

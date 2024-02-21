@@ -316,6 +316,12 @@ body.dark{
     padding: 10px 5px;
     color: var(--text-color);
     border-bottom: 2px solid var(--primary-color-light);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}.container .userData p{
+    font-weight: 500;
+    color: #bbbec2;
 }
 
 .container .userData:hover{
@@ -503,4 +509,38 @@ body.dark{
     cursor: pointer;
 }.subject .btns button:hover{
     transform: scale(1.2);
+}
+
+.AddDocs{
+    /* visibility: hidden; */
+    opacity: 0;
+    z-index: -1;
+
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: var(--tran-04);
+}
+.AddDocs.Active{
+    /* visibility: visible; */
+    opacity: 1;
+    z-index: 1;
+}
+
+.AddDocs .fillup .btn{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+.AddDocs .fillup .btn button{
+    width: 100%;
+    font-size: 17px;
+    border-radius: 6px;
+    border-style: none;
+    cursor: pointer;
 }

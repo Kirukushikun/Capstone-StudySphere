@@ -37,10 +37,9 @@
                 </div>
                 <div class="Calendar">
                     <h2>Calendar</h2>
-                    <div class="items">
-                        <h3>Examination in Arduino</h3>
-                        <p>Feb 20</p>
+                    <div class="events" id="events">
                     </div>
+
                 </div>
             </div>
 
@@ -69,5 +68,8 @@
     </section>
 
     <script src="{{ asset('js/sidebar.js') }}"></script>
+    <script src="{{asset('js/dashboard.js')}}">
+
+    </script>
 </body>
 </html>

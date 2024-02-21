@@ -38,14 +38,16 @@
                     
                     <div class="container">
                         @foreach($tasks as $task)
-                        <div class="userData">
-                            {{$task->title}}
+                        <div class="userData" onclick="location.href='{{route('taskmanager')}}'">
+                            <h4>{{$task->title}}</h4>
+                            <p>Task</p>
                         </div>
                         @endforeach
 
                         @foreach($quizzes as $quiz)
-                        <div class="userData">
-                            {{$quiz->name}}
+                        <div class="userData" onclick="location.href='{{route('quizview', ['id' => $quiz->id])}}'">
+                            <h4>{{$quiz->name}}</h4>
+                            <p>Quiz</p>
                         </div>
                         @endforeach
                     </div>
@@ -55,15 +57,20 @@
                     <!-- This is where we will display Documents and other files made by the user -->
                     <div class="header">
                         <h2>Documents</h2>
-                        <i class='bx bxs-file-plus'></i>
+                        <i class='bx bxs-file-plus' onclick="popupDF()"></i>
                     </div>
                     
 
                     <div class="container">
+                        @foreach($documents as $document)
                         <div class="userData">
-                            Document 1
+                            <h4>{{$document->file_name}}</h4>
+                            <p>File</p>
                         </div>
+                        @endforeach
                     </div>
+
+
                 </div>
 
             </div>
@@ -104,25 +111,39 @@
         </form>
 
         <form class="AddQuizMaterial" action="{{ route('quizzes.post') }}" method="POST">
-        @csrf 
-        <div class="fillup">
-            <h1>Make Quiz Container</h1>
-            <label for="name">Quiz Name:</label>
-            <input type="text" name="name" required>
+            @csrf 
+            <div class="fillup">
+                <h1>Make Quiz Container</h1>
+                <label for="name">Quiz Name:</label>
+                <input type="text" name="name" required>
 
-            <label for="subject">Subject:</label>
-            <input type="text" name="subject" required value="{{$subjects->subject}}">
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject" required value="{{$subjects->subject}}">
 
-            <label for="description">Description:</label>
-            <textarea name="description"  cols="30" rows="10" required></textarea>
+                <label for="description">Description:</label>
+                <textarea name="description"  cols="30" rows="10" required></textarea>
 
-            <div class="btns">
-                <button type="submit" id="btnAddTask">Add</button>
-                <button type="button" class="close" id="btnCancel" onclick="popdownQF2()">Cancel</button>
-            </div>        
-        </div>
+                <div class="btns">
+                    <button type="submit" id="btnAddTask">Add</button>
+                    <button type="button" class="close" id="btnCancel" onclick="popdownQF2()">Cancel</button>
+                </div>        
+            </div>
+        </form>
 
-    </form>
+        <form class="AddDocs" action="{{route('files.upload', $subjects->id)}}" method="POST" >
+            @csrf
+
+            <div class="fillup">
+                <input type="file" name="file">
+
+                <div class="btns">
+                    <button type="submit" id="btnAddTask" required>Upload</button>
+                    <button type="button" class="close" id="btnCancel" onclick="popdownDF()">Cancel</button>
+                </div>
+
+            </div>
+
+        </form>
         
     </section>
 
