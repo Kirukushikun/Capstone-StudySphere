@@ -29,9 +29,10 @@
                     <div class="items">
                         <h3>{{$task->title}}</h3>
                         <div class="status">
-                            <p>{{ $task->due_date->format('m/d') }} | {{$task->priority}} | {{ $task->status == 'in_progress' ? 'In Progress' : $task->status }}</p>
+                            <p>{{ $task->due_date->format('m/d') }}</p>
+                            <p>{{$task->priority}} </p>
+                            <p>{{ $task->status == 'in_progress' ? 'In Progress' : $task->status }}</p>
                         </div>
-
                     </div>
                     @endforeach
                 </div>
@@ -39,7 +40,6 @@
                     <h2>Calendar</h2>
                     <div class="events" id="events">
                     </div>
-
                 </div>
             </div>
 
@@ -48,18 +48,28 @@
                     <h2>Quizzes</h2>                    
                     @foreach($quizzes as $quiz)
                     <div class="items">
-                        <h3>{{$quiz->name}}</h3>
-                        <p>20 Items</p>
+                        <div class="detail">
+                            <h3>{{$quiz->name}}</h3>
+                            <p>{{$quiz->subject}}</p>
+                        </div>
+                        <p class="numItems">20 Items</p>
                     </div>
                     @endforeach
                 </div>
                 <div class="Repository">
                     <h2>Subjects</h2>
                     @foreach($subjects as $subject)
-                    <div class="items">
-                        <h3>{{$subject->subject}}</h3>
-                        <p class="description">{{$subject->description}}</p>
-                        <p>20 items</p>
+                    <div class="itemss">
+                        <div class="subject">
+                            <h3>{{$subject->subject}}</h3>
+                        </div>
+                        <div class="separate">
+                            <div class="description">
+                                <p>{{$subject->description}}</p>
+                            </div>
+                            <p>20 <br> Files</p>
+                        </div>
+
                     </div>                    
                     @endforeach
                 </div>                

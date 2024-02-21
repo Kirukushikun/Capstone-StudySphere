@@ -110,3 +110,14 @@ form .error p{
     color: rgba(84, 134, 147, 0.684);
 }
 
+@media(max-width: 435px){
+    form{
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+        transition: 0.5s;
+    }
+    form input{
+        width: 90%;
+    }
+}

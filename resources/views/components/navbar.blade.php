@@ -24,6 +24,16 @@
         @endauth
     </div>
 
+    <div class="menubar">
+        <i class='bx bx-menu'></i>
+    </div>
+
+    <div class="menubar Active">
+
+    </div>
+
+
+
 
 </nav>
 @endsection

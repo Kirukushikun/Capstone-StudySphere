@@ -40,7 +40,8 @@
                     <p>At StudySphere, we've sifted through countless learning tools to bring you our top recommendations. Discover the highest-rated features for your studies with just a few clicks. Your academic success is our priority!</p>
                     <button>GET STARTED</button>
                 </div>
-                <div class="image">Image</div> 
+                <div class="image">
+                </div> 
             </div>
         </div>
 

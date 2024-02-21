@@ -112,3 +112,20 @@ Form button{
 form .error p{
     color: #e06d6d;
 }
+
+@media(max-width: 610px){
+    .fullname{
+        flex-direction: column;
+        width: 100%;
+        transition: 0.5s;
+    }
+
+    form{
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0 20px;
+        transition: 0.5s;
+        width: 100%;
+    }
+
+}

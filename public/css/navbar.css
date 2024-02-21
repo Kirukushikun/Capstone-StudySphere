@@ -17,7 +17,7 @@
 
 }
 
-#logo{
+.navbar #logo{
     width: 70px;
     margin-right: 10px;
 }
@@ -28,6 +28,17 @@
 }
 .navbar .links{
     margin-left: auto;
+}
+.navbar .menubar{
+    display: none;
+}
+.navbar .menubar i{
+    color: #72B5C5;
+    cursor: pointer;
+    font-size: 40px;
+    transition: 0.4s ease;
+}.navbar .menubar i:hover{
+    transform: scale(1.1);
 }
 .navbar a{
     font-size: 120%;
@@ -92,4 +103,27 @@
     color: #72B5C5;
     font-size: 17px;
     font-weight: 600;
+}
+
+@media(max-width: 1094px){
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+    }
+    .navbar #logo{
+        margin-right: 0;
+        padding-right: 0;
+        width: 60px;
+    }
+    
+
+    .navbar .menubar{
+        display: flex;
+    }
+    .links{
+        display: none;
+    }
+    .userStatus{
+        display: none;
+    }
 }

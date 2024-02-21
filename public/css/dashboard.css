@@ -77,6 +77,14 @@ body.dark{
     padding: 20px;
     gap: 20px;
 }
+.content h2{
+    color: var(--text-color);
+    letter-spacing: 2px;
+    font-size: 28px;
+}
+.content p, .content h3{
+    color: #eeeeee;
+}
 
 .content .container1{
     grid-area: "container1";
@@ -92,13 +100,13 @@ body.dark{
     border-radius: 6px;
     padding: 15px;
     overflow-y: auto;
-    background-color: #72B5C5;
+    background-color: #7cabcf;
 }.content .container1 .Calendar{
     grid-area: "num2";
 
     border-radius: 6px;
     padding: 15px;
-    background-color: #72c599;
+    background-color: #72a8c5;
 }
 
 .content .container2{
@@ -114,33 +122,97 @@ body.dark{
 
     border-radius: 6px;
     padding: 15px;
-    background-color: #9372c5;
+    background-color: #80b6d7;
 }.content .container2 .Repository{
     grid-area: "num4";
 
     border-radius: 6px;
     padding: 15px;
-    background-color: #c072c5;
+    background-color: #5792b9;
 }
 
 .items{
     display: flex;
-    padding: 5px;
+    padding: 6px;
+    align-items: center;
     justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 3px;
+    transition: 0.3s ease;
 }
 
+/* TaskManager */
 .items .status{
-    background-color: #e7f1f2;
-    border-radius: 5px;
-    padding: 3px 5px;
-}
-/* .Repository .items{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
+    gap: 8px;
+
+}.items .status p{
+    color: #ffffff;
+    background-color: #4681a87a;
+    border-radius: 5px;
+    padding: 4px 10px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
 .Repository .items .description{
     width: 700px;
 }
+/* TaskManager */
 
+/* Calendar */
+.items .detail p{
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.52);
+}
+.events .items .date{
+    font-size: 20px;
+}
+/* Calendar */
 
+/* Quizzes */
+.QuizSection .items .detail p{
+    font-size: 16px;
+    /* padding: 0px 5px; */
+    color: rgba(255, 255, 255, 0.663);
+}.QuizSection .items .numItems{
+    font-size: 16px;
+
+}
+/* Quizzes */
+
+/* Repository */
+.Repository h2{
+    margin-bottom: 5px;
+}
+.Repository .itemss{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    height: 70px;
+    text-align: center;
+    padding-right: 10px;
+}
+.Repository .itemss .subject{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 90%;
+    background-color: #4680A8;
+    border-radius: 6px;
+}
+.itemss .description{
+    overflow-x: hidden;
+    text-align: left;
+    font-size: 18px;
+    padding: 0 10px;
+}
+.itemss .separate{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Repository */

@@ -75,6 +75,7 @@
     justify-content: center;
 
     color: #333;
+    height: auto;
 }
 
 .container2 .content{
@@ -84,7 +85,7 @@
     "content1"
     "content2";
 
-    height: 500px;
+    height: auto;
     align-items: center;
     max-width: 1000px;
     padding: 20px;
@@ -123,13 +124,21 @@
 background-color: #4680A8;
 }
 .container2 .image{
+    margin-top: 30px;
+
     grid-area: "content2";
     background-color: #72b5c566;
-    height: 100%;
-
+    border-radius: 25px 25px 0 0;
+    height: 400px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-image: url(../sources/tab.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
 }
 /* /CONTAINER 2 */
 
@@ -180,3 +189,79 @@ background-color: #4680A8;
     width: 500px;
 }
 /* /CONTAINER 3 */
+
+
+@media(max-width:  1023px){
+
+    .container1{
+        /* background-color: rgb(219, 215, 250); */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+    }
+    .container1 .content{
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-areas: "content1"
+        "content2";
+    
+        align-items: center;
+        max-width: 1000px;
+        padding: 20px;
+    
+        color: #333;
+    }
+    .container1 .details{
+        grid-area: "content1";
+        text-align: center;
+        margin: 0 5%;
+    }.container1 .details button{
+        margin: auto;
+    }
+    .container1 .image{
+        display: none;
+    }
+
+    
+}
+
+@media(max-width:  958px){
+    .container3{
+        /* background-color: rgb(215, 250, 249); */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        color: #333;
+    }
+    .container3 .content{
+        grid-template-columns: 2fr;
+        grid-template-areas:"content2"
+        "content1";
+
+        padding: 0 40px;
+    }
+    .container3 .details{
+        grid-area: "content1";
+
+        padding: 20px;
+    }.container3 .details h2{
+        font-size: 40px;
+    }
+    .container3 .image{
+        display: none;
+    }
+}
+
+@media(max-width: 628px){
+    .container1 .details{
+        grid-area: "content1";
+        padding: 20px;
+        gap: 20px;
+    }.container1 .details h1{
+        font-size: 32px;
+    }.container1 .details p{
+        font-size: 20px;
+    }
+}
