@@ -36,6 +36,7 @@
                     </div>
                     @endforeach
                 </div>
+                
                 <div class="Calendar">
                     <h2>Calendar</h2>
                     <div class="events" id="events">

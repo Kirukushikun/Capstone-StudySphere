@@ -43,6 +43,7 @@
                 <div>Sat</div>
             </div>
             <div class="days"></div>
+            
             <div class="goto-today">
                 <div class="goto">
                 <input type="text" placeholder="mm/yyyy" class="date-input" />

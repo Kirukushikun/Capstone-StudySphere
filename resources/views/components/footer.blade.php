@@ -4,7 +4,7 @@
     <div class="footercontainer1">
         <div class="content">
             <div class="media">
-                <a href="/" class='facebook'>
+                <a href="https://www.facebook.com/iverson.guno/" class='facebook'>
                     <i class='bx bxl-facebook-circle'></i>
                 </a>
                 <a href="/" class='instagram'>
@@ -13,7 +13,7 @@
                 <a href="/" class='twitter'>
                     <i class='bx bxl-twitter' ></i>    
                 </a>
-                <a href="/" class='github'>
+                <a href="https://github.com/Kirukushikun" class='github'>
                     <i class='bx bxl-github' ></i>
                 </a>
             </div>

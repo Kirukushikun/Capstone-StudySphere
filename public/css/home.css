@@ -41,6 +41,8 @@
     font-size: 20px;
     font-weight: 600;
 
+    cursor: pointer;
+
     padding: 10px 20px;
 
     border-radius: 5px;
@@ -115,6 +117,7 @@
 
     border-radius: 5px;
     border-style: none;
+    cursor: pointer;
     
     color: white;
     background-color: rgb(114, 181, 197);

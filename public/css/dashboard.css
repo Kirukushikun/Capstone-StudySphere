@@ -59,10 +59,16 @@ body.dark{
 
     font-size: 20px;
     color: var(--text-color);
-}.dashboardHeader h1{
+}
+.dashboardHeader h1{
     font-size: 30px;
 }.dashboardHeader b{
     color: var(--primary-color);
+}
+
+.user{
+    position: static;
+    right: 10px;
 }
 
 .content{
@@ -216,3 +222,43 @@ body.dark{
 }
 
 /* Repository */
+
+@media(max-width: 1246px){
+
+    .content .container1{
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-areas: "num1"
+        "num2";
+    }
+    .content .container2{
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-areas: "num3"
+        "num4";
+    
+        gap: 20px;
+
+        padding-bottom: 30px;
+    }
+}
+
+@media(max-width: 922px){
+    .content .container1{
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-areas: "num1"
+        "num2";
+
+        min-width: 600px;
+    }
+    .content .container2{
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-areas: "num3"
+        "num4";
+    
+        gap: 20px;
+        min-width: 400px;
+    }
+}

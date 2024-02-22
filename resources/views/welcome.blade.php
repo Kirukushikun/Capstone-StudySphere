@@ -25,7 +25,7 @@
                     <p>StudySphere is your dedicated space for academic excellence. Here, we've curated the finest online study tools to elevate your learning experience.
                     <br /><br />
                     Embark on a journey with StudySphere, where learning is not just a task but a rewarding adventure.</p>
-                    <button>JOIN US</button>
+                    <button onclick="location.href='/signup'">JOIN US</button>
                 </div>
                 <div class="image">
                     <img src="{{ asset('sources/Sql-Body.png') }}" alt="Image Unavailable" />    
@@ -38,7 +38,7 @@
                 <div class="details">
                     <h1>Top Picks for Your Studies</h1>
                     <p>At StudySphere, we've sifted through countless learning tools to bring you our top recommendations. Discover the highest-rated features for your studies with just a few clicks. Your academic success is our priority!</p>
-                    <button>GET STARTED</button>
+                    <button onclick="location.href='/dashboard'">GET STARTED</button>
                 </div>
                 <div class="image">
                     <div class="url">

@@ -305,6 +305,7 @@ body.dark{
     grid-template-columns: 2fr 2fr 2fr;
     grid-template-areas: "sub1 sub2 sub3";
     gap: 10px;
+    transition: 0.5s ease;
 }
 
 .userQuizzes .quiz{
@@ -452,3 +453,87 @@ body.dark{
     transform: scale(1.3);
 }
 /* VIEW QUESTION */
+
+
+@media(max-width: 1494px){
+    .userQuizzes{
+        grid-template-columns: 2fr 2fr;
+        grid-template-areas: "sub1 sub2"
+        "sub3 sub4";
+    }
+    .questionDetails{
+        width: 100%;
+    }
+    .questionDetails .questionChoices{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "c1 c2 c3 c4";
+        width: 100%;
+    }
+    .questionDetails .questionChoices div{
+        width: auto;
+        min-width: auto;
+    }.questionDetails .questionChoices div label{
+        color: #b1b3b9;
+        font-size: 15px;
+    }
+}
+@media(max-width: 1050px){
+    .userQuizzes{
+        grid-template-columns: 2fr;
+        grid-template-areas: "sub1"
+        "sub2"
+        "sub3"
+        "sub4";
+    }
+}
+
+@media(max-width: 920px){
+    .questionDetails .questionChoices{
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-areas: "c1 c2"
+        "c3 c4";
+        width: 100%;
+    }
+    .questionDetails h2{
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 671px){
+    .questionDetails .questionChoices{
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-areas: "c1"
+        "c2"
+        "c3"
+        "c4";
+        width: 100%;
+    }
+    .questionDetails h2{
+        font-size: 20px;
+    }
+}
+@media(max-width: 509px){
+    .quizzesHeader{
+        font-size: 15px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .quizzesHeader span{
+        display: none;
+    }
+}
+
+@media(max-width: 320px){
+    .questionDetails .questionChoices div{
+        font-size: 12px;
+    }    .questionDetails .questionChoices div label{
+        font-size: 12px;
+    }
+    .questionDetails h2{
+        font-size: 18px;
+    }
+}
