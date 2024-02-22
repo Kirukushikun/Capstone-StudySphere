@@ -117,7 +117,7 @@
     border-style: none;
     
     color: white;
-    background-color: #72B5C5;
+    background-color: rgb(114, 181, 197);
     transition: 0.2s;
 }   
 .container2 .details button:hover{
@@ -139,6 +139,15 @@ background-color: #4680A8;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
+
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    position: relative;
+}
+.container2 .image .url{
+    position: absolute;
+    top: 22px;
+    left: 240px;
 }
 /* /CONTAINER 2 */
 

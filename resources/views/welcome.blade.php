@@ -41,6 +41,9 @@
                     <button>GET STARTED</button>
                 </div>
                 <div class="image">
+                    <div class="url">
+                        <p>Https://studysphere.com</p>
+                    </div>
                 </div> 
             </div>
         </div>
@@ -67,5 +70,12 @@
 
     @yield('footer')
 
+    <script>
+        function collapseActive(){
+            document.querySelector(".menuLinks").classList.add("Active");
+        }function collapse(){
+            document.querySelector(".menuLinks").classList.remove("Active");
+        }
+    </script>
 </body>
 </html>

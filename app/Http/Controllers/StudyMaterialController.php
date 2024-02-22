@@ -41,6 +41,7 @@ class StudyMaterialController extends Controller
                 'subjects' => $subject
             ]);
         }
+        return view('login');
     }
 
     function task(){

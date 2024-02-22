@@ -61,5 +61,13 @@
 
     @yield('footer')
 
+    <script>
+        function collapseActive(){
+            document.querySelector(".menuLinks").classList.add("Active");
+        }function collapse(){
+            document.querySelector(".menuLinks").classList.remove("Active");
+        }
+    </script>
+
 </body>
 </html>
