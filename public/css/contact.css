@@ -107,3 +107,64 @@
   }#submit:hover{
     background-color: #4680A8;
   }
+
+  @media (max-width: 1440px){
+    .ContactContent{
+      margin-top: 30px;
+      height: auto; 
+    }
+  }
+
+  @media(max-width: 1036px){
+    .ContactContent .mainContent{
+      padding: 0 30px;
+    }
+
+  }
+
+  @media(max-width: 906px){
+    body{
+      height: 900px;
+    }
+      .ContactContent .mainContent{
+        max-width: 1000px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+        
+    .mainContent .subContent1{
+      text-align: center;
+      margin-right: 0;
+      padding-right: 0;
+    }
+    
+    .mainContent .subContent2{
+      margin: auto;
+      
+    }
+  }
+
+  @media(max-width: 537px){
+    body{
+      height: 1000px;
+    }
+  }
+
+  @media(max-width: 425px){
+    .mainContent .subContent1{
+      width: 300px;
+    }
+
+    .form .fullname{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .subContent2 .form input, textarea{
+      font-size: 13px;
+    }
+  }

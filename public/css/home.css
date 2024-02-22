@@ -235,6 +235,15 @@ background-color: #4680A8;
     
 }
 
+@media(max-width: 975px){
+    .container2 .details button{
+        margin-bottom: 40px;
+    }
+    .container2 .image{
+        display: none;
+    }
+}
+
 @media(max-width:  958px){
     .container3{
         /* background-color: rgb(215, 250, 249); */
@@ -272,5 +281,10 @@ background-color: #4680A8;
         font-size: 32px;
     }.container1 .details p{
         font-size: 20px;
+    }
+}
+@media(max-width: 453px){
+    .container1 .content{
+        height: auto;
     }
 }

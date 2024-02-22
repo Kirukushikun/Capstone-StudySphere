@@ -84,7 +84,10 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    margin: auto;
     gap: 25px;
+
 }
 .footercontainer1 .links a{
     text-decoration: none;
@@ -109,3 +112,37 @@ footer{
     padding: 10px;
     font-weight: 100;
 }
+
+
+@media(max-width: 520px){
+    .footercontainer1 .links{
+        width: auto;
+    }
+    .footercontainer1 .links a{
+        font-size: 100%;
+    }
+}
+
+
+@media(max-width: 432px){
+    .footercontainer1 .links{
+        width: 300px;
+        gap: 10px;
+    }
+    .footercontainer1 .links a{
+        font-size: 80%;
+    }
+}
+@media(max-width: 320px){
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footercontainer1 .content .links{
+        margin-left: -10px;
+    }
+}
+
