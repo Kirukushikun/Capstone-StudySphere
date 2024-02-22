@@ -134,7 +134,7 @@
     margin-left: 17px;
     padding-left: 10px;
 }.links2 a:hover{
-    background-color: #547a99a3;
+    background-color: #3f67706a;
     color: #f2f2f2;
 }
 .menubar2{
@@ -173,7 +173,8 @@
 }.userStatus2 .logout a, .login a{
     width: 90%;
     text-align: center;
-    background-color: #4680A8;
+    background-color: #3f6770;
+    color: #f2f2f2;
     transition: 0.3s ease;
 }.userStatus2 .logout a:hover, .login a:hover{
     background-color: #35607d;

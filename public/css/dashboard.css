@@ -46,7 +46,6 @@ body.dark{
     --text-color: #eeeeee;
     --text-color2:#f3f3f3;
 
-    --primary-color-opposite: #72B5C5;
 }
 
 .dashboardHeader{
@@ -198,16 +197,19 @@ body.dark{
     gap: 15px;
     height: 70px;
     text-align: center;
-    padding-right: 10px;
 }
 .Repository .itemss .subject{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 10%;
+    width: 15%;
     height: 90%;
     background-color: #4680A8;
     border-radius: 6px;
+}.Repository .itemss .subject p{
+    font-size: 14px;
+    color: #d9d4d4b3;
 }
 .itemss .description{
     overflow-x: hidden;

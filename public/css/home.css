@@ -162,6 +162,7 @@ background-color: #4680A8;
     justify-content: center;
 
     color: #333;
+    z-index: 1;
 }
 .container3 .content{
     display: grid;

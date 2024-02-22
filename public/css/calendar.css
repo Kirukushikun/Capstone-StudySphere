@@ -16,6 +16,8 @@
     --toggle-color: #DDD;
     --text-color: #333;
 
+    --primary-color-opposite: #4680A8;
+
     /* Transition */
     --tran-03: all 0.2s ease;
     --tran-03: all 0.3s ease;
@@ -37,6 +39,9 @@ body.dark{
     --primary-color-light: #3A3B3C;
     --toggle-color: #FFF;
     --text-color: #eeeeee;
+
+    
+    --primary-color-opposite: #72B5C5;
 
 }
 
@@ -289,7 +294,7 @@ body.dark .switch::before{
     align-items: center;
     justify-content: center;
     padding-bottom: 20px;
-    background-color:var(--body-color);
+    background-color:var(--primary-color-light);
     transition: var(--tran-04);
   }
   .container {
@@ -302,7 +307,10 @@ body.dark .switch::before{
     display: flex;
   
     border-radius: 10px;
-    background-color: #3A3B3C;
+
+    background-color: var(--primary-color-light);
+    transition: var(--tran-04);
+
   }
   .left {
     width: 60%;
@@ -319,6 +327,8 @@ body.dark .switch::before{
     color: #878895;
     border-radius: 5px;
     background-color: #fff;
+
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
   }
   /* set after behind the main element */
   .calendar::before,
@@ -332,11 +342,12 @@ body.dark .switch::before{
     border-radius: 0 5px 5px 0;
     background-color: #d3d4d6d7;
     transform: translateY(-50%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
   .calendar::before {
     height: 94%;
     left: calc(100% + 12px);
-    background-color: rgb(153, 153, 153);
+    background-color: rgb(176, 176, 176);
   }
   .calendar .month {
     width: 100%;
@@ -539,7 +550,8 @@ body.dark .switch::before{
   }
   .right .today-date .event-day {
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-color);
   }
   .right .today-date .event-date {
     font-size: 1rem;
@@ -566,8 +578,10 @@ body.dark .switch::before{
     gap: 5px;
     padding: 0 20px;
     padding-left: 50px;
+
     color: #fff;
-    background: linear-gradient(90deg, #3f4458, transparent);
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+
     cursor: pointer;
     transition: 0.5s ease;
   }
@@ -577,7 +591,7 @@ body.dark .switch::before{
     
   }
   .events .event:hover {
-    background: linear-gradient(90deg, var(--primary-color), transparent);
+    background: linear-gradient(90deg, var(--primary-color-opposite), transparent);
     transition: var(--tran-04);
   }
   .events .event .title {
@@ -591,7 +605,7 @@ body.dark .switch::before{
     margin-left: 20px;
   }
   .events .event i {
-    color: var(--primary-color);
+    color: var(--primary-color-opposite);
     transition: var(--tran-04);
     font-size: 0.5rem;
   }
@@ -601,7 +615,7 @@ body.dark .switch::before{
   .events .event .event-time {
     font-size: 0.8rem;
     font-weight: 400;
-    color: #878895;
+    color: #e3e6f1;
     margin-left: 15px;
     pointer-events: none;
   }
@@ -671,6 +685,7 @@ body.dark .switch::before{
     background-color: #fff;
     transform: translateX(-50%);
     transition: max-height 0.5s ease;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   .add-event-wrapper.active {
     max-height: 300px;

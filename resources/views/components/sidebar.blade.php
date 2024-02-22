@@ -76,7 +76,6 @@
                     <span class="switch">
                     </span>
                 </div>
-
             </li>
         </div>
 

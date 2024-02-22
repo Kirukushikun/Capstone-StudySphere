@@ -60,7 +60,13 @@
 
 
                         <div class="items">
-                            <p>20 Items</p>
+                            <p>
+                                @if($quiz->item_count > 1)
+                                    {{$quiz->item_count}} Items
+                                @else
+                                    {{$quiz->item_count}} Item
+                                @endif
+                            </p>
 
                             <div class="view">
                                 <span><a href="{{route('quizview', ['id'=>$quiz->id ])}}">View Quiz</a></span>

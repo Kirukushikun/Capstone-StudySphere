@@ -53,7 +53,13 @@
                             <h3>{{$quiz->name}}</h3>
                             <p>{{$quiz->subject}}</p>
                         </div>
-                        <p class="numItems">20 Items</p>
+                        <p class="numItems">
+                            @if($quiz->items_count > 1)
+                                {{$quiz->items_count}} Items
+                            @else
+                                {{$quiz->items_count}} Item
+                            @endif
+                        </p>
                     </div>
                     @endforeach
                 </div>
@@ -63,12 +69,18 @@
                     <div class="itemss">
                         <div class="subject">
                             <h3>{{$subject->subject}}</h3>
+                            <p>
+                                @if($subject->items_count > 1)
+                                    {{$subject->items_count}} Files
+                                @else
+                                    {{$subject->items_count}} File
+                                @endif
+                            </p>
                         </div>
                         <div class="separate">
                             <div class="description">
                                 <p>{{$subject->description}}</p>
                             </div>
-                            <p>20 <br> Files</p>
                         </div>
 
                     </div>                    

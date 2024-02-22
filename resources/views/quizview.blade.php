@@ -23,7 +23,12 @@
         </div>
 
         <div class="quizzesContent">
-
+            @if(session()->has('error'))
+                <div class="error">
+                    <h3>{{ session('error')}}</h3>
+                </div>            
+            @endif
+            
             <div class="addQuizzes">
                 <button onclick="location.href='{{route('quiz.take', ['quiz_id' => $quiz->id])}}'">
                     <i class='bx bx-brain'></i>

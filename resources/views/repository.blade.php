@@ -53,7 +53,13 @@
                     <p>{{ $subject->description }}</p>
 
                     <div class="items">
-                        <p>20 Items</p>
+                        <p>
+                            @if($subject->items_count > 1)
+                                {{$subject->items_count}} Items
+                            @else
+                                {{$subject->items_count}} Item
+                            @endif
+                        </p>
 
                         <div class="view">
                             <span><a href="{{ route('subjectview', ['id'=> $subject->id]) }}">View</a></span>

@@ -43,7 +43,7 @@
 
                 <div class="cofounderDetails">
                     <h2>Co-Founder/Graphic Designer</h2>
-                    <h1>Ishi T. Robles</h1>
+                    <h1>Ishi R. Guno</h1>
                     <p>An architecture student at Tarlac State University. Her innate talent for visual expression shines through in every stroke of the digital canvas, as she effortlessly combines architectural precision with artistic flair. With a keen eye for detail and a relentless pursuit of excellence, She infuses our website with a sense of wonder and imagination. Her dedication to her craft and unwavering passion for creativity make her an invaluable asset to our team. We are privileged to have her on board, enriching our website with her extraordinary talent and passion for the arts.</p>
                 </div>
 

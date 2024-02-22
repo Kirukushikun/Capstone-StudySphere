@@ -34,11 +34,25 @@ class StudyMaterialController extends Controller
 
             $tasks = TaskManager::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
             $quizzes = Quizzes::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
-            $subject = Subjects::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
+            $subjects = Subjects::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
+            
+            foreach($quizzes as $quiz){
+                $quizItems = Choice::where('quiz_id', $quiz->id)->count();
+                $quiz->items_count = $quizItems;
+            }
+            
+            foreach($subjects as $subject){
+                $files = Files::where('subject_id', $subject->id)->count();
+                $tasksItems = TaskManager::where('subject', $subject->subject)->count();
+                $quizzesItems = Quizzes::where('subject', $subject->subject)->count();
+
+                $subject->items_count = $files + $tasksItems + $quizzesItems;
+            }
+
             return view('dashboard', [
                 'tasks' => $tasks,
                 'quizzes' => $quizzes,
-                'subjects' => $subject
+                'subjects' => $subjects
             ]);
         }
         return view('login');
@@ -108,6 +122,13 @@ class StudyMaterialController extends Controller
 
         if(Auth::check()){
             $subjects = Subjects::where('user_id', Auth::id())->get();
+            foreach($subjects as $subject){
+                $files = Files::where('subject_id', $subject->id)->count();
+                $tasks = TaskManager::where('subject', $subject->subject)->count();
+                $quizzes = Quizzes::where('subject', $subject->subject)->count();
+
+                $subject->items_count = $files + $tasks + $quizzes;
+            }
             return view('repository', ['subjects' => $subjects]);
         }
         return view('login');
@@ -167,6 +188,9 @@ class StudyMaterialController extends Controller
     function quizzes(){
         if(Auth::check()){
             $quizzes = Quizzes::where('user_id', Auth::id())->get();
+            foreach($quizzes as $quiz){
+                $quiz->item_count = Choice::where('quiz_id', $quiz->id)->count();
+            }
             return view('quizzes', ['quizzes' => $quizzes]);
         }
         return view('login');
@@ -303,16 +327,22 @@ class StudyMaterialController extends Controller
         $questions = Question::where('quiz_id', $quiz_id)->get();
         $choices = [];
 
-        foreach($questions as $question){
-            $questionChoices = Choice::where('question_id', $question->id)->get();
-            $choices[$question->id] = $questionChoices;
+        $numItems = Question::where('quiz_id', $quiz_id)->count();
+
+        if($numItems > 0){
+            foreach($questions as $question){
+                $questionChoices = Choice::where('question_id', $question->id)->get();
+                $choices[$question->id] = $questionChoices;
+            }
+            return view('quiztake', [
+                'questions' => $questions,
+                'choices' => $choices,
+                'quizzes' => $quizzes
+            ]);
+        }else{
+            return redirect()->back()->with('error', "No Question yet have been made");
         }
 
-        return view('quiztake', [
-            'questions' => $questions,
-            'choices' => $choices,
-            'quizzes' => $quizzes
-        ]);
     }
 
     function materialTaskAdd($id, Request $request){
