@@ -4,8 +4,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
+    margin-top: -20px;
     height: 600px;
+    padding-bottom: 60px;
   }
   
   .ContactContent .mainContent{
@@ -107,14 +108,6 @@
   }#submit:hover{
     background-color: #4680A8;
   }
-
-  @media (max-width: 1440px){
-    .ContactContent{
-      margin-top: 30px;
-      height: auto; 
-    }
-  }
-
   @media(max-width: 1036px){
     .ContactContent .mainContent{
       padding: 0 30px;
@@ -123,6 +116,11 @@
   }
 
   @media(max-width: 906px){
+
+    .ContactContent{
+      margin-top: 30px;
+    }
+    
     body{
       height: 900px;
     }
