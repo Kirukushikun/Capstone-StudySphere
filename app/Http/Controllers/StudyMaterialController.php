@@ -331,12 +331,12 @@ class StudyMaterialController extends Controller
                 'quizzes' => $quizzes,
                 'error' => "No questions have been added to this quiz yet."
             ]);
+        }else{
+            return view('quiztake', [
+                'questions' => $questions,
+                'quizzes' => $quizzes
+            ]);
         }
-    
-        return view('quiztake', [
-            'questions' => $questions,
-            'quizzes' => $quizzes
-        ]);
     }
 
     public function evaluateQuiz($id, Request $request) {
