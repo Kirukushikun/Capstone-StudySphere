@@ -545,10 +545,31 @@ body.dark{
     cursor: pointer;
 }
 
-@media(max-width: 764px ){
-    .userDocuments{
-        grid-template-columns: 2fr;
-        grid-template-areas: "container1"
-        "container2";
+@media(max-width: 1024px){
+    .userSubjects{
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas: "sub1 sub2"
+    "sub3 sub4";
     }
+}
+@media(max-width: 566px){
+    .userSubjects{
+        grid-template-columns: 2fr;
+        grid-template-areas: "sub1"
+        "sub2"
+        "sub3"
+        "sub4";
+    }
+
+    .subjectHeader{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .subjectHeader .user{
+        display: none;
+    }
+    
 }

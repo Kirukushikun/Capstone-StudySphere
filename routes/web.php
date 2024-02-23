@@ -60,6 +60,8 @@ Route::patch('quiz/{id}', [StudyMaterialController::class, 'quizUpdate'])->name(
 Route::delete('quizzes/{id}', [StudyMaterialController::class, 'quizDelete'])->name('quiz.delete');
 Route::get('quiz/take/{quiz_id}', [StudyMaterialController::class, 'quizTake'])->name('quiz.take');
 
+Route::post('quiz/evaluate/{id}', [StudyMaterialController::class, 'evaluateQuiz'])->name('evaluate.quiz');
+
 Route::get('/quizview/{id}', [StudyMaterialController::Class, 'quizView'])->name('quizview');
 
 

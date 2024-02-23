@@ -12,42 +12,40 @@
 
 
 
-    <form action="">
+<form action="{{ route('evaluate.quiz', ['id' => $quizzes->id]) }}" method="POST">
+    @csrf
+    
+    <button type="button" class="exit" onclick="location.href='{{ route('quizview', ['id' => $quizzes->id]) }}'">
+        <i class='bx bx-left-arrow-alt'></i>
+    </button>
 
-        <button type="button" class="exit" onclick="location.href='{{ route('quizview', ['id' => $quizzes->id]) }}'">
-            <i class='bx bx-left-arrow-alt' ></i>
-        </button>
-
-        @foreach($questions as $question)
-        <div class="container">
-            <div class="quizQuestion">
-                <p>Question No. 1</p>
-                <h1>{{$question->question_text}}</h1>
-            </div>
-            @foreach ($choices[$question->id] as $choice)
-            <div class="quizChoices">
-
-                <div class="division">
-                    <button>{{$choice->correct_choice}}</button>
-                    <button>{{$choice->choice_text_2}}</button>                
-                </div>
-
-                <div class="division">
-                    <button>{{$choice->choice_text_3}}</button>
-                    <button>{{$choice->choice_text_4}}</button>                
-                </div>
-            </div>
+    @foreach($questions as $index => $question)
+    <div class="container">
+        <div class="quizQuestion">
+            <p>Question No. {{ $index + 1 }}</p>
+            <h1>{{ $question->question_text }}</h1>
+        </div>
+        <div class="quizChoices">
+            @php
+                $choices = $question->choices->pluck('correct_choice')->merge(
+                            $question->choices->pluck('choice_text_2'))->merge(
+                            $question->choices->pluck('choice_text_3'))->merge(
+                            $question->choices->pluck('choice_text_4'))->shuffle();
+            @endphp
+            @foreach ($choices as $choice)
+            <label>
+                <input type="radio" name="answers[{{ $question->id }}]" value="{{ $choice }}">
+                {{ $choice }}
+            </label>
             @endforeach
         </div>
-        @endforeach
-        
-        <div class="btnSubmit">
-            <button type="submit">Submit</button>
-        </div>
-        
-
-    </form>
+    </div>
+    @endforeach
     
+    <div class="btnSubmit">
+        <button type="submit">Submit</button>
+    </div>
+</form>
 
 </body>
 </html>

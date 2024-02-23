@@ -19,8 +19,8 @@
             </div>
 
             <div class="links">
-                <a href="/">Terms & Condition</a>
-                <a href="/">Privacy</a>
+                <a href="https://www.termsandconditionsgenerator.com/live.php?token=RFnmFw6tbmXFdkdGFbdDCjeum2Qof0uQ">Terms & Condition</a>
+                <a href="https://www.freeprivacypolicy.com/live/e37c2c43-2b38-48f1-853a-fa329391d4b4">Privacy</a>
                 <a href="/">Cookies</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="footercontainer2">
-        <p>2024 <b>Lorem Ipsum.</b> All Rights Reserved.</p>
+        <p>2024 <b>StudySphere.</b> All Rights Reserved.</p>
     </div>
 
 </footer>

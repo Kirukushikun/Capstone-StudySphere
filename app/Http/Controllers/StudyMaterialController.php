@@ -324,25 +324,41 @@ class StudyMaterialController extends Controller
 
     function quizTake($quiz_id){
         $quizzes = Quizzes::findOrFail($quiz_id);
-        $questions = Question::where('quiz_id', $quiz_id)->get();
-        $choices = [];
-
-        $numItems = Question::where('quiz_id', $quiz_id)->count();
-
-        if($numItems > 0){
-            foreach($questions as $question){
-                $questionChoices = Choice::where('question_id', $question->id)->get();
-                $choices[$question->id] = $questionChoices;
-            }
+        $questions = Question::where('quiz_id', $quiz_id)->with('choices')->get();
+    
+        if($questions->isEmpty()){
             return view('quiztake', [
-                'questions' => $questions,
-                'choices' => $choices,
-                'quizzes' => $quizzes
+                'quizzes' => $quizzes,
+                'error' => "No questions have been added to this quiz yet."
             ]);
-        }else{
-            return redirect()->back()->with('error', "No Question yet have been made");
         }
+    
+        return view('quiztake', [
+            'questions' => $questions,
+            'quizzes' => $quizzes
+        ]);
+    }
 
+    public function evaluateQuiz($id, Request $request) {
+        $answers = $request->input('answers');
+        $score = 0;
+
+        $quizzes = Quizzes::findOrFail($id);
+        $questions = Question::where('quiz_id', $id)->count();
+        
+        foreach ($answers as $question_id => $selected_answer) {
+            $question = Choice::findOrFail($question_id);
+            if ($question->correct_choice === $selected_answer) {
+                $score++;
+            }
+        }
+    
+        // You can save the score in the database or just pass it to the view
+        return view('/score', ['score' => $score,
+        'quizzes' => $quizzes,
+        'questions' => $questions
+        ]);
+        
     }
 
     function materialTaskAdd($id, Request $request){

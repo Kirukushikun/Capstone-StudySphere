@@ -20,7 +20,13 @@ class Question extends Model
         'quiz_id',
         'user_id',
     ];
+
+    public function choices()
+    {
+        return $this->hasMany(Choice::class);
+    }
 }
+
 
 // class Question extends Model
 // {
