@@ -29,6 +29,7 @@ class StudyMaterialController extends Controller
         return redirect()->back()->with('success', 'Files uploaded successfully.');
     }
 
+    // LOAD DASHBOARD
     function dashboard(){
         if(Auth::check()){
 
@@ -58,40 +59,38 @@ class StudyMaterialController extends Controller
         return view('login');
     }
 
+    //LOAD TASK
     function task(){
         if(Auth::check()){
-            // Retrieve tasks data associated with the authenticated user
-            // $tasks = TaskManager::where('user_id', Auth::id())->get();
             $tasks = TaskManager::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
-            // Return the taskmanager view with filtered tasks data
             return view('taskmanager', ['tasks' => $tasks]);
         }
         return view('login');
     }
-    function taskPost(Request $request){ // Add Request parameter to the function
 
-        //names should be the same as the column in database tble
+    //ADD TASK
+    function taskPost(Request $request){ 
+
         $data['title'] = $request->title;
         $data['subject'] = $request->subject;
         $data['due_date'] = $request->due_date;
         $data['priority'] = $request->priority;
         $data['status'] = $request->status;
 
-        // Add user ID to the validated data
         $data['user_id'] = auth()->user()->id;
 
-        // Create the task using the validated data
         $user = TaskManager::create($data);
 
-        // Redirect the user to the task manager page
         return redirect()->route('taskmanager');
     }
 
+    //DELETE TASK
     function taskDelete(TaskManager $task){
         $task->delete();
         return redirect()->route('taskmanager');
     }
 
+    //EDIT TASK
     function edit($id) {
         $taskID = TaskManager::findOrFail($id);
         $tasks = TaskManager::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
@@ -99,8 +98,9 @@ class StudyMaterialController extends Controller
         return view('editTask', compact('taskID', 'tasks'));
     }
 
+    //UPDATE TASK
     public function update(Request $request, $id) {
-        // Validate the incoming request data
+
         $validatedData = $request->validate([
             'title' => 'required|string',
             'subject' => 'required|string',
@@ -109,15 +109,14 @@ class StudyMaterialController extends Controller
             'status' => 'required|in:pending,in_progress,completed',
         ]);
 
-        // Find the task by ID
         $task = TaskManager::findOrFail($id);
 
-        // Update the task with the validated data
         $task->update($validatedData);
 
-        // Redirect the user back to the task manager page
         return redirect()->route('taskmanager')->with('success', 'Task updated successfully');
     }
+
+    //LOAD REPOSITORY
     function repository(){
 
         if(Auth::check()){
@@ -134,6 +133,7 @@ class StudyMaterialController extends Controller
         return view('login');
     }
 
+    //ADD REPOSITORY
     function repositoryPost(Request $request){
         
         $data['subject'] = $request->subject;
@@ -143,9 +143,9 @@ class StudyMaterialController extends Controller
         $user = Subjects::create($data);
 
         return redirect()->route('repository');
-
     }
 
+    //SUBJECT VIEW WITHIN REPOSITORY 
     function subjectView($id){
         $subjectID = Subjects::find($id);
 
@@ -161,12 +161,14 @@ class StudyMaterialController extends Controller
         ]);
     }
 
+    //SUBJECT EDIT WITHIN REPOSITORY 
     function subjectEdit($id){
         $edit = Subjects::findOrFail($id);
         $subjects = Subjects::where('user_id', Auth::id())->get();
         return view('editSubject', ['edit' => $edit, 'subjects' => $subjects]);
     }
 
+    //SUBJECT UPDATE WITHIN REPOSITORY 
     function subjectUpdate(Request $request, $id){
         $data['subject'] = $request->subject;
         $data['description'] = $request->description;
@@ -177,6 +179,7 @@ class StudyMaterialController extends Controller
         return redirect()->route('repository');
     }
 
+    //SUBJECT DELETE WITHIN REPOSITORY 
     function subjectDelete($id){
         $deleteDocs = Files::where('subject_id', $id);
         $deleteDocs->delete();        
@@ -185,6 +188,7 @@ class StudyMaterialController extends Controller
         return redirect()->route('repository');
     }
     
+    //LOAD QUIZZES
     function quizzes(){
         if(Auth::check()){
             $quizzes = Quizzes::where('user_id', Auth::id())->get();
@@ -196,6 +200,7 @@ class StudyMaterialController extends Controller
         return view('login');
     }
 
+    //ADD QUIZZES
     function quizzesPost(Request $request){
         $data['name'] = $request->name;
         $data['subject'] = $request->subject;
@@ -207,6 +212,7 @@ class StudyMaterialController extends Controller
         return redirect()->route('quizzes');
     }
 
+    //QUIZ VIEW WITHIN QUIZ SECTION
     function quizView($id){
         $quiz = Quizzes::find($id);
         $questions = Question::where('quiz_id', $id)->get();
@@ -225,6 +231,7 @@ class StudyMaterialController extends Controller
         ]);
     }
 
+    //QUESTION VIEW WITHIN QUIZ SECTION
     function questionPost($id, Request $request){
         $question['question_text'] = $request->question_text;
         $question['quiz_id'] = $id;
@@ -246,6 +253,7 @@ class StudyMaterialController extends Controller
         return redirect()->route('quizview', ['id' => $id]);
     }
 
+    //QUESTION EDIT WITHIN QUIZ SECTION
     function questionDelete($quiz_id, $question_id ){
         $deleteChoices = Choice::where('question_id', $question_id)->get();
         foreach ($deleteChoices as $choice) {
@@ -259,16 +267,16 @@ class StudyMaterialController extends Controller
         return redirect()->route('quizview', ['id' => $quiz_id]);
     }
 
+    //QUESTION EDIT WITHIN QUIZ SECTION   
     function questionEdit($quiz_id, $question_id, $choices_id ){
         $activeQuiz = Quizzes::findOrFail($quiz_id);
-        $existingQuestion = Question::where('quiz_id', $quiz_id)->get(); //Retrieve All questions that has the same Quiz ID
-        $existingChoices = []; //Retrieve all choices of every question within the Quiz Container
+        $existingQuestion = Question::where('quiz_id', $quiz_id)->get();
+        $existingChoices = [];
         foreach($existingQuestion as $question){
             $questionChoices = Choice::where('question_id', $question->id)->get();
             $existingChoices[$question->id] = $questionChoices;
         }
 
-        //Retrieve the current question along with its choices for editing
         $currentQuestion = Question::findOrFail($question_id);
         $currentChoices = Choice::findOrFail($choices_id);
         
@@ -281,6 +289,7 @@ class StudyMaterialController extends Controller
         ]);
     }
 
+    //QUESTION UPDATE WITHIN QUIZ SECTION
     function questionUpdate($question_id, $choice_id, Request $request){
         $updateQuestion['question_text'] = $request->question_text;
         $question = Question::findOrFail($question_id);
@@ -296,6 +305,7 @@ class StudyMaterialController extends Controller
         return redirect()->route('quizview', ['id' => $question->quiz_id]);
     }
     
+    //QUIZ EDIT WITHIN QUIZ SECTION
     function quizEdit($id){
         $quizID = Quizzes::findOrFail($id);
         $quizzes = Quizzes::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
@@ -303,6 +313,7 @@ class StudyMaterialController extends Controller
         return view('editQuiz', ['quizzes' => $quizzes], ['quizID' => $quizID] );
     }
 
+    //QUIZ UPDATE WITHIN QUIZ SECTION
     function quizUpdate(Request $request, $id){
         $update['name'] = $request->name;
         $update['subject'] = $request->subject;
@@ -313,6 +324,7 @@ class StudyMaterialController extends Controller
         return redirect()->route('quizzes');
     }
 
+    //QUIZ DELETE WITHIN QUIZ SECTION
     function quizDelete($id){
         $deletequiz = Quizzes::findOrFail($id);
         $deletechoice = Choice::where('quiz_id', $id)->delete();
@@ -322,6 +334,7 @@ class StudyMaterialController extends Controller
         return redirect()->route('quizzes');
     }
 
+    //QUIZ TAKE WITHIN QUIZ SECTION
     function quizTake($quiz_id){
         $quizzes = Quizzes::findOrFail($quiz_id);
         $questions = Question::where('quiz_id', $quiz_id)->with('choices')->get();
@@ -338,7 +351,7 @@ class StudyMaterialController extends Controller
             ]);
         }
     }
-
+    //EVALUATE QUIZ AFTER TAKING
     public function evaluateQuiz($id, Request $request) {
         $answers = $request->input('answers');
         $score = 0;
@@ -353,7 +366,6 @@ class StudyMaterialController extends Controller
             }
         }
     
-        // You can save the score in the database or just pass it to the view
         return view('/score', ['score' => $score,
         'quizzes' => $quizzes,
         'questions' => $questions
@@ -361,6 +373,7 @@ class StudyMaterialController extends Controller
         
     }
 
+    
     function materialTaskAdd($id, Request $request){
         $subject = Subjects::findOrFail($id);
 
@@ -370,10 +383,8 @@ class StudyMaterialController extends Controller
         $data['priority'] = $request->priority;
         $data['status'] = $request->status;
 
-        // Add user ID to the validated data
         $data['user_id'] = auth()->user()->id;
 
-        // Create the task using the validated data
         $user = TaskManager::create($data);
 
         return redirect()->route('subjectview', ['id' => $id]);
