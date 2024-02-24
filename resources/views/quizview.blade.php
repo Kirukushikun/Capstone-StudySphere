@@ -111,8 +111,14 @@
         </form>
 
     </div>
-    
-    <script src="{{ asset('js/FormAdd.js') }}"></script>
+    <script>
+        //ADD QUESTION FORM
+        function popupQuestion(){
+            document.querySelector(".AddQuestion").classList.add("Active");
+        }function popdownQuestion(){
+            document.querySelector(".AddQuestion").classList.remove("Active");
+        }
+    </script>
     <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>

@@ -76,7 +76,14 @@
         @yield('addsubject')
 
     </section>
-
+    <script>
+        //ADD SUBJECT FORM
+        function popupSF(){
+            document.querySelector(".AddSubject").classList.add("Active");
+        }function popdownSF(){
+            document.querySelector(".AddSubject").classList.remove("Active");
+        }
+    </script>
     <script src="{{ asset('js/formAdd.js') }}"></script>
     <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>

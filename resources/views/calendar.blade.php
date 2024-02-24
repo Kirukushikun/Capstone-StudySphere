@@ -92,10 +92,9 @@
             <i class="fas fa-plus"></i>
         </button>
         </div>
-
     </section>
 
-    <script src="{{ asset('js/sideBar.js') }}"></script>
+    <script src="{{ asset('js/sidebar.js') }}"></script>
     <script src="{{ asset('js/calendar.js') }}"></script>
 
 </body>

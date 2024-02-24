@@ -146,8 +146,44 @@
         </form>
         
     </section>
+    <script>
+        function popupDF(){
+            document.querySelector(".AddDocument").classList.add("Active");
+        }function popdownDF(){
+            document.querySelector(".AddDocument").classList.remove("Active");
+        }
+        //ADD MATERIALS FORM
+        function popupAM(){
+            document.querySelector(".AddMaterial").classList.add("Active");
+        }function popdownAM(){
+            document.querySelector(".AddMaterial").classList.remove("Active");
+        }
+        //ADD DOCUMENTS FORM
+        function popupDF(){
+            document.querySelector(".AddDocs").classList.add("Active");
+        }function popdownDF(){
+            document.querySelector(".AddDocs").classList.remove("Active");
+        }
 
-    <script src="{{ asset('js/FormAdd.js') }}"></script>
+        function popupTF2(){
+            document.querySelector(".AddTaskMaterial").classList.add("Active");
+            
+            document.querySelector(".AddMaterial").classList.remove("Active");
+            document.querySelector(".AddQuizMaterial").classList.remove("Active");
+        }function popdownTF2(){
+            document.querySelector(".AddTaskMaterial").classList.remove("Active");
+        }
+
+
+        function popupQF2(){
+            document.querySelector(".AddQuizMaterial").classList.add("Active");
+
+            document.querySelector(".AddMaterial").classList.remove("Active");
+            document.querySelector(".AddTaskMaterial").classList.remove("Active");
+        }function popdownQF2(){
+            document.querySelector(".AddQuizMaterial").classList.remove("Active");
+        }
+    </script>
     <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>

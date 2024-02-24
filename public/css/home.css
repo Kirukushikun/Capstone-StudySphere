@@ -130,15 +130,13 @@ background-color: #4680A8;
     margin-top: 30px;
 
     grid-area: "content2";
-    background-color: #72b5c566;
-    border-radius: 25px 25px 0 0;
-    height: 400px;
+    border-radius: 29px 28px 0 0;
+    height: auto;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background-image: url(../sources/tab.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
@@ -146,11 +144,18 @@ background-color: #4680A8;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container2 .image img{
+    width: 100%;
 }
 .container2 .image .url{
     position: absolute;
-    top: 22px;
-    left: 240px;
+    top: 23px;
+    left: 255px;
 }
 /* /CONTAINER 2 */
 

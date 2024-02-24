@@ -27,7 +27,7 @@
         <div class="taskManagerTable">
 
             <div class="addTasks">
-                <i class='bx bx-plus' onclick="popupTF()"></i>
+                <i class='bx bx-plus' id="popupTask"></i>
             </div>
 
             <div class="userTasks">
@@ -77,7 +77,16 @@
         @yield('addtask')
     </section>
     
-    <script src="{{ asset('js/formAdd.js') }}"></script>
+    <script>
+
+        //ADD FORM
+        function popupTF(){
+            document.querySelector(".AddTask").classList.add("Active");
+        }function popdownTF(){
+            document.querySelector(".AddTask").classList.remove("Active");
+        }
+
+    </script>
     <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>

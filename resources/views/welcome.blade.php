@@ -44,6 +44,7 @@
                     <div class="url">
                         <p>Https://studysphere.com</p>
                     </div>
+                    <img src="{{ asset('sources/Tab.png') }}" alt="Image Unavailable">
                 </div> 
             </div>
         </div>

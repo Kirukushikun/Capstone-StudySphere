@@ -83,7 +83,14 @@
 
     </section>
 
-    <script src="{{ asset('js/formAdd.js') }}"></script>
+    <script>
+        //ADD QUIZ FORM
+        function popupQF(){
+            document.querySelector(".AddQuiz").classList.add("Active");
+        }function popdownQF(){
+            document.querySelector(".AddQuiz").classList.remove("Active");
+        }
+    </script>
     <script src="{{ asset('js/sideBar.js') }}"></script>
     <script>
 
