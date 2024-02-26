@@ -9,6 +9,7 @@ use App\Models\Quizzes;
 use App\Models\Question;
 use App\Models\Choice;
 use App\Models\Files;
+use App\Models\Notes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -125,8 +126,9 @@ class StudyMaterialController extends Controller
                 $files = Files::where('subject_id', $subject->id)->count();
                 $tasks = TaskManager::where('subject', $subject->subject)->count();
                 $quizzes = Quizzes::where('subject', $subject->subject)->count();
+                $notes = Notes::where('subject', $subject->subject)->count();
 
-                $subject->items_count = $files + $tasks + $quizzes;
+                $subject->items_count = $files + $tasks + $quizzes + $notes;
             }
             return view('repository', ['subjects' => $subjects]);
         }
@@ -152,12 +154,14 @@ class StudyMaterialController extends Controller
         $tasks = TaskManager::where('subject', $subjectID->subject)->get();
         $quizzes = Quizzes::where('subject', $subjectID->subject)->get();
         $documents = Files::where('subject_id', $subjectID->id)->get();
+        $notes = Notes::where('subject', $subjectID->subject)->get();
 
         return view('subjectview', [
             'subjects' => $subjectID,
             'tasks' => $tasks,
             'quizzes' => $quizzes,
-            'documents' => $documents
+            'documents' => $documents,
+            'notes' => $notes
         ]);
     }
 
@@ -340,10 +344,7 @@ class StudyMaterialController extends Controller
         $questions = Question::where('quiz_id', $quiz_id)->with('choices')->get();
     
         if($questions->isEmpty()){
-            return view('quiztake', [
-                'quizzes' => $quizzes,
-                'error' => "No questions have been added to this quiz yet."
-            ]);
+            return redirect()->route('quizview', ['id'=> $quizzes->id])->with('error', 'No questions have been added to this quiz yet');
         }else{
             return view('quiztake', [
                 'questions' => $questions,
@@ -351,6 +352,7 @@ class StudyMaterialController extends Controller
             ]);
         }
     }
+
     //EVALUATE QUIZ AFTER TAKING
     public function evaluateQuiz($id, Request $request) {
         $answers = $request->input('answers');
@@ -390,4 +392,63 @@ class StudyMaterialController extends Controller
         return redirect()->route('subjectview', ['id' => $id]);
     }
 
+
+    //NOTES VIEW
+    function note(){
+        if(Auth::check()){
+            $notes = Notes::where('user_id', Auth::id())->get();
+            return view('note', ['notes' => $notes]);
+        }
+        return view('login');
+    }
+
+    function notePost(Request $request){
+        $data['title'] = $request->title;
+        $data['subject'] = $request->subject;
+        $data['body'] = $request->body;
+        $data['user_id'] = auth()->user()->id;
+
+        $user = Notes::create($data);
+
+        return redirect()->route('note');
+    }
+
+    function noteDelete($id){
+        $data = Notes::findOrFail($id);
+        $data->delete();
+        return redirect()->route('note'); // Assuming 'note' is the index route name
+    }
+
+    function noteUpdate($id, Request $request){
+        $update = Notes::findOrFail($id);
+
+        $data['title'] = $request->title;
+        $data['subject'] = $request->subject;
+
+        $update->update($data);
+        return redirect()->route('note');
+    }
+
+    function noteView($id){
+        $existingNotes = Notes::where('user_id', Auth::id())->get();
+        $viewNote = Notes::findOrFail($id);
+
+        return view('noteview', [
+            'notes' => $existingNotes,
+            'view' => $viewNote
+        ]);
+    }
+
+    function noteViewUpdate($id, Request $request){
+        $update = Notes::findOrFail($id);
+
+        $data['title'] = $request->title;
+        $data['subject'] = $request->subject;
+        $data['body'] = $request->body;
+
+        $update->update($data);
+        return redirect()->route('note')->with('success', 'Updated Successfully');
+    }
+
+    
 }

@@ -16,9 +16,6 @@ use App\Http\Controllers\StudyMaterialController;
 |
 */
 
-Route::get('files', [StudyMaterialController::class, 'index'])->name('files.index');
-Route::post('files/upload/{id}', [StudyMaterialController::class, 'uploadFile'])->name('files.upload');
-
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
 Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
 Route::patch('/forgot', [AuthManager::class, 'updatePass'])->name('update.password');
@@ -52,6 +49,9 @@ Route::get('/subjectview/{id}', [StudyMaterialController::class, 'subjectView'])
 Route::get('material/add/{id}', [StudyMaterialController::class, 'materialAddTask'])->name('materialTask.add');
 Route::get('material/add/{id}', [StudyMaterialController::class, 'materialAddQuiz'])->name('materialQuiz.add');
 
+Route::get('files', [StudyMaterialController::class, 'index'])->name('files.index');
+Route::post('files/upload/{id}', [StudyMaterialController::class, 'uploadFile'])->name('files.upload');
+
 Route::get('/quizzes', [StudyMaterialController::class, 'quizzes'])->name('quizzes');
 Route::post('/quizzes', [StudyMaterialController::class, 'quizzesPost'])->name('quizzes.post');
 
@@ -62,15 +62,23 @@ Route::get('quiz/take/{quiz_id}', [StudyMaterialController::class, 'quizTake'])-
 
 Route::post('quiz/evaluate/{id}', [StudyMaterialController::class, 'evaluateQuiz'])->name('evaluate.quiz');
 
-Route::get('/quizview/{id}', [StudyMaterialController::Class, 'quizView'])->name('quizview');
+Route::get('/quizview/{id}', [StudyMaterialController::class, 'quizView'])->name('quizview');
 
 
-Route::post('/quizview/{id}', [StudyMaterialController::Class, 'questionPost'])->name('question.post');
+Route::post('/quizview/{id}', [StudyMaterialController::class, 'questionPost'])->name('question.post');
 
 Route::get('question/{quiz_id}/{question_id}/{choices_id}', [StudyMaterialController::class, 'questionEdit'])->name('question.edit');
 Route::patch('question/{question_id}/{choice_id}', [StudyMaterialController::class, 'questionUpdate'])->name('question.update');
-Route::delete('question/{quiz_id}/{question_id}', [StudyMaterialController::Class, 'questionDelete'])->name('question.delete');
+Route::delete('question/{quiz_id}/{question_id}', [StudyMaterialController::class, 'questionDelete'])->name('question.delete');
 
+
+Route::get('/note', [StudyMaterialController::class, 'note'])->name('note');
+Route::post('/note', [StudyMaterialController::class, 'notePost'])->name('note.post');
+Route::delete('/note/{id}', [StudyMaterialController::class, 'noteDelete'])->name('note.delete');
+Route::patch('/note/{id}', [StudyMaterialController::class, 'noteUpdate'])->name('note.update');
+
+Route::get('/noteview/{id}', [StudyMaterialController::class, 'noteView'])->name('note.view');
+Route::patch('/noteview/update/{id}', [StudyMaterialController::class, 'noteViewUpdate'])->name('note.view.update');
 
 Route::get('/', function () {
     return view('welcome');

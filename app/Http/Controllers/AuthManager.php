@@ -28,25 +28,31 @@ class AuthManager extends Controller
         return redirect(route('login'))->with("error", "Invalid email or password.");
     }
 
-    function signupPost(Request $request){
+function signupPost(Request $request){
 
-        $password = $request->password;
-        $confirm = $request->cpassword;
+    $password = $request->password;
+    $confirm = $request->cpassword;
 
-        if($password === $confirm){
-            $data['firstname'] = $request->firstname;
-            $data['lastname'] = $request->lastname;
-            $data['email'] = $request->email;
-            $data['password'] = Hash::make($request->cpassword);
+    if($password === $confirm){
+        $data['firstname'] = $request->firstname;
+        $data['lastname'] = $request->lastname;
+        $data['email'] = $request->email;
+        $data['password'] = Hash::make($request->cpassword);
 
+        try {
             $user = User::create($data);
-
             return redirect()->intended(route('login'));
-        }else{
-            return redirect(route('signup'))->with("error", "Password not match. Please try again");
+        } catch (\Illuminate\Database\QueryException $exception) {
+            if ($exception->errorInfo[1] === 1062) {
+                return redirect(route('signup'))->with("error", "Email already exists. Please use a different email address.");
+            }
+            return redirect(route('signup'))->with("error", "An error occurred. Please try again later.");
         }
-        
+    } else {
+        return redirect(route('signup'))->with("error", "Passwords do not match. Please try again.");
     }
+    
+}
 
     function updatePass(Request $request){
         $user = User::where('email', $request->email)->first();
@@ -54,7 +60,6 @@ class AuthManager extends Controller
             return redirect()->back()->with('error', 'No user found with this email address.');
         }
 
-        // Check if the provided old password matches the user's current password
         if (!Hash::check($request->old_password, $user->password)) {
             return redirect()->back()->with('error', 'The provided old password is incorrect.');
         }

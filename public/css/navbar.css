@@ -14,7 +14,6 @@
     border-bottom: 1px solid #f2f2f2;
 
     color: #333;
-
 }
 
 .navbar #logo{
@@ -45,9 +44,11 @@
     margin-left: 16px;
     text-decoration: none;
     padding: 6px;
+    color: #333;
+    font-weight: 400;
 }
 .navbar a:hover{
-    color: #4680A8;
+    color: #72B5C5;
 }
 
 .userStatus{
@@ -71,12 +72,11 @@
 
     margin-right: 20px;
 }
-.login a:hover{
+.userStatus .login a:hover{
     background-color: #4680A8;
     color: #f2f2f2;
 }
-
-.logout a{
+.userStatus .logout a{
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
@@ -90,7 +90,7 @@
 
     margin-right: 20px;
 }
-.logout a:hover{
+.userStatus .logout a:hover{
     background-color: #4680A8;
     color: #f2f2f2;
 }
@@ -178,6 +178,7 @@
     margin-right: 15px;
 }.userStatus2 .logout a:hover, .login a:hover{
     background-color: #35607d;
+    color: white;
 }
 /* Collapsing */
 

@@ -35,6 +35,13 @@
                 </li>
 
                 <li class="nav-link">
+                    <a href="/note">
+                        <i class='bx bx-note icon'></i>
+                        <span class="text nav-text">Note Taking</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
                     <a href="/calendar">
                         <i class='bx bx-calendar icon' ></i>
                         <span class="text nav-text">Calendar</span>
@@ -54,6 +61,7 @@
                         <span class="text nav-text"> Repository</span>
                     </a>
                 </li>
+
             </ul>
         </div>
 

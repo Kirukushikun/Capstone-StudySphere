@@ -27,7 +27,7 @@
         <div class="taskManagerTable">
 
             <div class="addTasks">
-                <i class='bx bx-plus' id="popupTask"></i>
+                <i class='bx bx-plus' id="popupTask" onclick="popupTF()"></i>
             </div>
 
             <div class="userTasks">

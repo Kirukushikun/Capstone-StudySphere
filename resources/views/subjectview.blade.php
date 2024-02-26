@@ -50,6 +50,13 @@
                             <p>Quiz</p>
                         </div>
                         @endforeach
+
+                        @foreach($notes as $note)
+                        <div class="userData" onclick="location.href='{{route('note.view', $note->id)}}'">
+                            <h4>{{$note->title}}</h4>
+                            <p>Note</p>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
 
