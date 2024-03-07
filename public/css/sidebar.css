@@ -105,6 +105,7 @@ header .image-text .header-text{
     color: var(--text-color);
 }.header-text .name h3{
     font-size: 20px;
+    cursor: pointer;
 }
 .header-text .profession{
     margin-top: -2px;

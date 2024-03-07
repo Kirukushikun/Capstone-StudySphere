@@ -40,9 +40,9 @@
                     <p>At StudySphere, we've sifted through countless learning tools to bring you our top recommendations. Discover the highest-rated features for your studies with just a few clicks. Your academic success is our priority!</p>
                     <button onclick="location.href='/dashboard'">GET STARTED</button>
                 </div>
-                <div class="imageTab">
+                <div class="image">
                     <div class="url">
-                        <p>Https://studysphere.com</p>
+                        <p>Https://studysphere.site</p>
                     </div>
                     <img src="{{ asset('sources/Tab.png') }}" alt="Image Unavailable">
                 </div> 

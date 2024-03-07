@@ -9,7 +9,7 @@
 
             <div class="text header-text">
                 <span class="name">
-                    <h3>StudySphere</h3>
+                    <h3 onclick="location.href='/'">StudySphere</h3>
                 </span>
             </div>
         </div>

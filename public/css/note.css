@@ -89,6 +89,7 @@ body.dark{
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }.noteTaking .container1 form{
     display: flex;
     flex-direction: column;
@@ -259,6 +260,25 @@ body.dark{
 }.fillup .btns #btnCancel:hover{
     background-color: #a25656;
 }
+
+.addBtn{
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-style: none;
+}.addBtn a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.4s ease;
+}.addBtn a:hover{
+    transform: scale(1.2);
+}   
 
 @media(max-width: 1060px){
     .noteTaking{

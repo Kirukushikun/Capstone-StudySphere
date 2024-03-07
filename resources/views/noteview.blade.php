@@ -42,6 +42,11 @@
 
         <div class="noteTaking">
             <div class="container1">
+
+                <button class="addBtn">
+                    <a href="/note"><i class='bx bx-plus'></i></a>
+                </button>
+
                 <form action="{{route('note.view.update', $view->id)}}" method="POST">
                     @csrf
                     @method('PATCH')
